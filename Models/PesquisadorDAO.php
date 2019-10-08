@@ -2,8 +2,8 @@
     require_once "Pesquisador.php";
 
     class PesquisadorDAO {
-        public function buscarPesquisadorPorNome($linkConexao, $nome) {
-            $consulta = "SELECT * FROM Pesquisador WHERE nome=\"".$nome."\";";
+        public function buscar($linkConexao, $nome, $senha) {
+            $consulta = "SELECT * FROM Pesquisador WHERE nome=\"".$nome."\" AND senha=\"".$senha."\";";
             $result = mysqli_query($linkConexao, $consulta);
             if(! $result) {
                 return False;

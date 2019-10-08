@@ -12,8 +12,8 @@
             $this->adm = $adm;
         }
 
-        public function getSenha() {
-            return $this->senha;
+        public function getId() {
+            return $this->id;
         }
     }
 ?>

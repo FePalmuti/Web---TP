@@ -7,25 +7,22 @@
     $senha = $_POST["senha"];
 
     // Estabelece conexao com o BD
-    $conexao = new Conexao("localhost", "root", "", "Dados");
+    $conexao = new Conexao();
     if(! $conexao->conectar()) {
         require_once "../../Views/Erros/ErroConexao.php";
         die();
     }
 
-    // Executa o comando SQL
+    // Executa os comandos SQL
     $pesquisadorDAO = new PesquisadorDAO();
-    $pesquisador = $pesquisadorDAO->buscarPesquisadorPorNome($conexao->getLink(), $nome);
+    $pesquisador = $pesquisadorDAO->buscar($conexao->getLink(), $nome, $senha);
     if(! $pesquisador) {
-        require_once "../../Views/Erros/ErroSQL.php";
+        require_once "../../Views/Erros/ErroEntrada.php";
         die();
     }
 
-    // Processa o resultado
-    if($pesquisador->getSenha() == $senha) {
-        echo("Login aprovado!");
-    }
-    else {
-        echo("Senha incorreta!");
-    }
+    // Inicia sessao
+    session_start();
+    $_SESSION["id_pesquisador"] = $pesquisador->getId();
+    require_once "Testes.php";
 ?>
