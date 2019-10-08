@@ -15,12 +15,7 @@
 
     // Executa os comandos SQL
     $pesquisadorDAO = new PesquisadorDAO();
-    $result = $pesquisadorDAO->cadastrar($conexao->getLink(), $nome, $senha);
-    if(! $result) {
-        require_once "../../Views/Erros/ErroSQL.php";
-        die();
-    }
-    $pesquisador = $pesquisadorDAO->buscar($conexao->getLink(), $nome, $senha);
+    $pesquisador = $pesquisadorDAO->cadastrar($conexao->getLink(), $nome, $senha);
     if(! $pesquisador) {
         require_once "../../Views/Erros/ErroSQL.php";
         die();
