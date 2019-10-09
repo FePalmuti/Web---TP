@@ -26,6 +26,22 @@ CREATE TABLE Teste (
 	UNIQUE (codigo_acesso)
 );
 
+CREATE TABLE Pergunta (
+	numero int,
+	instrucoes varchar(100),
+	descricao varchar(100),
+	tipo enum('discreto', 'continuo'),
+	id_teste int,
+	CONSTRAINT fk_Pergunta_Teste
+		FOREIGN KEY (id_teste)
+		REFERENCES Teste (id)
+		ON DELETE CASCADE
+		ON UPDATE CASCADE,
+	PRIMARY KEY (numero, id_teste)
+);
+
 INSERT INTO Pesquisador (nome, senha) VALUES ("Felipe", "123");
-INSERT INTO Teste (codigo_acesso, nome, descricao, id_pesquisador) VALUES ("abc", "oi", "tchau", "1");
-INSERT INTO Teste (codigo_acesso, nome, descricao, id_pesquisador) VALUES ("abcde", "ola", "adeus", "1");
+
+INSERT INTO Teste (codigo_acesso, nome, id_pesquisador) VALUES ("aabbcc", "Teste1", 1);
+
+INSERT INTO Pergunta (numero, tipo, id_teste) VALUES (1, "discreto", 1);

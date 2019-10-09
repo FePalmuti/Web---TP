@@ -14,6 +14,10 @@
             $this->id_pesquisador = $id_pesquisador;
         }
 
+        public function getId() {
+            return $this->id;
+        }
+
         public function getNome() {
             return $this->nome;
         }
