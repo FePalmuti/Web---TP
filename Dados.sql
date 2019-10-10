@@ -40,8 +40,4 @@ CREATE TABLE Pergunta (
 	PRIMARY KEY (numero, id_teste)
 );
 
-INSERT INTO Pesquisador (nome, senha) VALUES ("Felipe", "123");
-
-INSERT INTO Teste (codigo_acesso, nome, id_pesquisador) VALUES ("aabbcc", "Teste1", 1);
-
-INSERT INTO Pergunta (numero, tipo, id_teste) VALUES (1, "discreto", 1);
+select * from pesquisador;

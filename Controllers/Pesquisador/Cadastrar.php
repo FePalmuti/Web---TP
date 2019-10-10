@@ -13,10 +13,18 @@
         die();
     }
 
-    // Executa os comandos SQL
+    // Verifica quantidade de pesquisadores
     $pesquisadorDAO = new PesquisadorDAO();
-    $pesquisador = $pesquisadorDAO->cadastrar($conexao->getLink(), $nome, $senha);
-    if(! $pesquisador) {
+    $qnt = $pesquisadorDAO->quantidadePesquisadores($conexao->getLink());
+    if(! $qnt) {
+        $qnt = 0;
+    }
+    $id = $qnt + 1;
+
+    // Cria o pesquisador
+    $pesquisador = new Pesquisador($id, $nome, $senha, True);
+    $result = $pesquisadorDAO->cadastrar($conexao->getLink(), $pesquisador);
+    if(! $result) {
         require_once "../../Views/Erros/ErroSQL.php";
         die();
     }

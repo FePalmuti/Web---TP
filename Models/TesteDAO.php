@@ -3,17 +3,6 @@
     require_once "../../Utilidades.php";
 
     class TesteDAO {
-        public function quantidadeTestes($linkConexao) {
-            $consulta = "SELECT COUNT(id) AS qnt FROM Teste;";
-            $result = mysqli_query($linkConexao, $consulta);
-            if(! $result) {
-                return False;
-            }
-            while($linha = mysqli_fetch_object($result)) {
-                return $linha->qnt;
-            }
-        }
-
         public function cadastrar($linkConexao, $teste_incompleto) {
             $consulta = "INSERT INTO Pesquisador (codigo_acesso, nome, descricao, id_pesquisador)
                     VALUES (\"".$teste_incompleto.getNome()."\", \"".$teste_incompleto.getDescricao()."\", \"".$teste_incompleto.getIdPesquisador()."\");";
@@ -36,6 +25,17 @@
                 array_push($lista_testes, $teste);
             }
             return $lista_testes;
+        }
+
+        public function quantidadeTestes($linkConexao) {
+            $consulta = "SELECT COUNT(id) AS qnt FROM Teste;";
+            $result = mysqli_query($linkConexao, $consulta);
+            if(! $result) {
+                return False;
+            }
+            while($linha = mysqli_fetch_object($result)) {
+                return $linha->qnt;
+            }
         }
     }
 ?>
