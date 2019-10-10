@@ -5,7 +5,7 @@
         <title></title>
     </head>
     <body>
-        <form action="../../Controllers/Pesquisador/Cadastro.php" method="post">
+        <form action="../../Controllers/Pesquisador/Cadastrar.php" method="post">
             CADASTRO<br>
             Nome: <input type="text" name="nome"><br>
             Senha: <input type="text" name="senha"><br>

@@ -5,7 +5,7 @@
         <title></title>
     </head>
     <body>
-        <form action="../../Controllers/Pesquisador/Login.php" method="post">
+        <form action="../../Controllers/Pesquisador/Logar.php" method="post">
             LOGIN<br>
             Nome: <input type="text" name="nome"><br>
             Senha: <input type="text" name="senha"><br>

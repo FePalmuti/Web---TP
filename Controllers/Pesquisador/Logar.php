@@ -15,14 +15,14 @@
 
     // Executa os comandos SQL
     $pesquisadorDAO = new PesquisadorDAO();
-    $pesquisador = $pesquisadorDAO->cadastrar($conexao->getLink(), $nome, $senha);
+    $pesquisador = $pesquisadorDAO->buscar($conexao->getLink(), $nome, $senha);
     if(! $pesquisador) {
-        require_once "../../Views/Erros/ErroSQL.php";
+        require_once "../../Views/Erros/ErroEntrada.php";
         die();
     }
 
     // Inicia sessao
     session_start();
     $_SESSION["id_pesquisador"] = $pesquisador->getId();
-    require_once "Testes.php";
+    require_once "ExibirTestes.php";
 ?>
