@@ -39,5 +39,3 @@ CREATE TABLE Pergunta (
 		ON UPDATE CASCADE,
 	PRIMARY KEY (numero, id_teste)
 );
-
-select * from pesquisador;

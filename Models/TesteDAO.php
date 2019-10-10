@@ -3,14 +3,13 @@
     require_once "../../Utilidades.php";
 
     class TesteDAO {
-        public function cadastrar($linkConexao, $teste_incompleto) {
-            $consulta = "INSERT INTO Pesquisador (codigo_acesso, nome, descricao, id_pesquisador)
-                    VALUES (\"".$teste_incompleto.getNome()."\", \"".$teste_incompleto.getDescricao()."\", \"".$teste_incompleto.getIdPesquisador()."\");";
+        public function cadastrar($linkConexao, $teste) {
+            $consulta = "INSERT INTO Teste VALUES (\"".$teste->getId()."\", \"".$teste->getCodigoAcesso()."\", \"".$teste->getNome()."\", \"".$teste->getDescricao()."\", \"".$teste->getIdPesquisador()."\");";
             $result = mysqli_query($linkConexao, $consulta);
             if(! $result) {
                 return False;
             }
-            return $this->buscar($linkConexao, $nome, $senha);
+            return True;
         }
 
         public function buscar($linkConexao, $id_pesquisador) {
