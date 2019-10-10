@@ -1,7 +1,29 @@
 <?php
     require_once "Teste.php";
+    require_once "../../Utilidades.php";
 
     class TesteDAO {
+        public function quantidadeTestes($linkConexao) {
+            $consulta = "SELECT COUNT(id) AS qnt FROM Teste;";
+            $result = mysqli_query($linkConexao, $consulta);
+            if(! $result) {
+                return False;
+            }
+            while($linha = mysqli_fetch_object($result)) {
+                return $linha->qnt;
+            }
+        }
+
+        public function cadastrar($linkConexao, $teste_incompleto) {
+            $consulta = "INSERT INTO Pesquisador (codigo_acesso, nome, descricao, id_pesquisador)
+                    VALUES (\"".$teste_incompleto.getNome()."\", \"".$teste_incompleto.getDescricao()."\", \"".$teste_incompleto.getIdPesquisador()."\");";
+            $result = mysqli_query($linkConexao, $consulta);
+            if(! $result) {
+                return False;
+            }
+            return $this->buscar($linkConexao, $nome, $senha);
+        }
+
         public function buscar($linkConexao, $id_pesquisador) {
             $consulta = "SELECT * FROM Teste WHERE id_pesquisador=\"".$id_pesquisador."\";";
             $result = mysqli_query($linkConexao, $consulta);

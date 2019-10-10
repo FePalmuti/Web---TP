@@ -15,8 +15,7 @@
     $testeDAO = new TesteDAO();
     $lista_testes = $testeDAO->buscar($conexao->getLink(), $id_pesquisador);
     if(! $lista_testes) {
-        require_once "../../Views/Erros/ErroNenhumTeste.php";
-        die();
+        $lista_testes = array();
     }
 
     // Redireciona para a view

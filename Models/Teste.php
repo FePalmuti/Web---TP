@@ -18,8 +18,20 @@
             return $this->id;
         }
 
+        public function getCodigoAcesso() {
+            return $this->codigo_acesso;
+        }
+
         public function getNome() {
             return $this->nome;
+        }
+
+        public function getDescricao() {
+            return $this->descricao;
+        }
+
+        public function getIdPesquisador() {
+            return $this->id_pesquisador;
         }
     }
 ?>
