@@ -21,6 +21,14 @@
                 }
                 echo "<br>";
             }
+            // Melhorar!
+            //--------------------
+            foreach($_SESSION["matriz_imagens"] as $lista_imagens) {
+                foreach($lista_imagens as $imagem) {
+                    echo "<img src='".$imagem."' height='100'>";
+                }
+            }
+            //--------------------
         ?>
         <form action="../../Views/Pesquisador/NovoTeste.php">
             <input type="submit" value="Novo">

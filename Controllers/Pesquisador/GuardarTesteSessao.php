@@ -28,5 +28,6 @@
     // Guarda na sessao
     $_SESSION["teste"] = $teste;
     $_SESSION["lista_perguntas"] = array();
+    $_SESSION["matriz_imagens"] = array();
     require_once "../../Views/Pesquisador/NovaPergunta.php";
 ?>

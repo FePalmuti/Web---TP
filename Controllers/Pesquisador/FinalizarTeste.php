@@ -28,5 +28,9 @@
         $perguntaDAO->cadastrar($conexao->getLink(), $pergunta);
     }
 
+    //-----------------------------------------
+    // Salvar imagens no BD
+    //-----------------------------------------
+
     require_once "ExibirTestes.php";
 ?>

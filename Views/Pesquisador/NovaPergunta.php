@@ -15,6 +15,12 @@
                 <option value="continuo">Continuo</option>
             </select>
             <br>
+            <select name="qnt_imagens">
+                <option value="3">3</option>
+                <option value="5">5</option>
+                <option value="7">7</option>
+            </select>
+            <br>
             <input type="submit" value="Guardar item">
         </form>
         <form action="../../Controllers/Pesquisador/FinalizarTeste.php">

@@ -39,3 +39,21 @@ CREATE TABLE Pergunta (
 		ON UPDATE CASCADE,
 	PRIMARY KEY (numero, id_teste)
 );
+
+CREATE TABLE Imagem (
+	arquivo varchar(60),
+	grau_representado int,
+    num_pergunta int,
+    id_teste int,
+	CONSTRAINT fk_Imagem_Num_Pergunta
+		FOREIGN KEY (num_pergunta)
+		REFERENCES Pergunta (numero)
+		ON DELETE CASCADE
+		ON UPDATE CASCADE,
+	CONSTRAINT fk_Imagem_ID_Teste
+		FOREIGN KEY (id_teste)
+		REFERENCES Teste (id)
+		ON DELETE CASCADE
+		ON UPDATE CASCADE,
+	PRIMARY KEY (grau_representado, num_pergunta, id_teste)
+);
