@@ -1,5 +1,6 @@
 <?php
     require_once "Teste.php";
+    require_once "PerguntaDAO.php";
     require_once "../../Utilidades.php";
 
     class TesteDAO {
@@ -19,8 +20,17 @@
                 return False;
             }
             $lista_testes = array();
-            while($linha = mysqli_fetch_object($result)) {
-                $teste = new Teste($linha->id, $linha->codigo_acesso, $linha->nome, $linha->descricao, $linha->id_pesquisador);
+            // Monta cada objeto teste
+            while($teste = mysqli_fetch_object($result)) {
+                // Busca as perguntas do teste
+                //--------------------
+                $perguntaDAO = new PerguntaDAO();
+                $lista_perguntas = $perguntaDAO->buscar($linkConexao, $teste->id);
+                if(! $lista_perguntas) {
+                    $lista_perguntas = array();
+                }
+                //--------------------
+                $teste = new Teste($teste->id, $teste->codigo_acesso, $teste->nome, $teste->descricao, $teste->id_pesquisador, $lista_perguntas);
                 array_push($lista_testes, $teste);
             }
             return $lista_testes;

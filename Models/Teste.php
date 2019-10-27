@@ -5,13 +5,15 @@
         private $nome;
         private $descricao;
         private $id_pesquisador;
+        private $lista_perguntas;
 
-        public function Teste($id, $codigo_acesso, $nome, $descricao, $id_pesquisador) {
+        public function Teste($id, $codigo_acesso, $nome, $descricao, $id_pesquisador, $lista_perguntas) {
             $this->id = $id;
             $this->codigo_acesso = $codigo_acesso;
             $this->nome = $nome;
             $this->descricao = $descricao;
             $this->id_pesquisador = $id_pesquisador;
+            $this->lista_perguntas = $lista_perguntas;
         }
 
         public function getId() {
@@ -32,6 +34,10 @@
 
         public function getIdPesquisador() {
             return $this->id_pesquisador;
+        }
+
+        public function getListaPerguntas() {
+            return $this->lista_perguntas;
         }
     }
 ?>

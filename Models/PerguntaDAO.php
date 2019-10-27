@@ -1,5 +1,6 @@
 <?php
     require_once "Pergunta.php";
+    require_once "ImagemDAO.php";
 
     class PerguntaDAO {
         public function cadastrar($linkConexao, $pergunta) {
@@ -17,12 +18,21 @@
             if(! $result) {
                 return False;
             }
-            $lista_pergunta = array();
-            while($linha = mysqli_fetch_object($result)) {
-                $pergunta = new Pergunta($linha->numero, $linha->instrucoes, $linha->descricao, $linha->tipo, $linha->id_teste);
-                array_push($lista_pergunta, $pergunta);
+            $lista_perguntas = array();
+            // Monta cada objeto pergunta
+            while($pergunta = mysqli_fetch_object($result)) {
+                // Busca as imagens da pergunta
+                //--------------------
+                $imagemDAO = new ImagemDAO();
+                $lista_imagens = $imagemDAO->buscar($linkConexao, $pergunta->numero, $id_teste);
+                if(! $lista_imagens) {
+                    $lista_imagens = array();
+                }
+                //--------------------
+                $pergunta = new Pergunta($pergunta->numero, $pergunta->instrucoes, $pergunta->descricao, $pergunta->tipo, $pergunta->id_teste, $lista_imagens);
+                array_push($lista_perguntas, $pergunta);
             }
-            return $lista_pergunta;
+            return $lista_perguntas;
         }
     }
 ?>
