@@ -41,8 +41,8 @@ CREATE TABLE Pergunta (
 );
 
 CREATE TABLE Imagem (
-	arquivo varchar(60),
-	grau_representado int,
+	arquivo varchar(200),
+	grau int,
     num_pergunta int,
     id_teste int,
 	CONSTRAINT fk_Imagem_Num_Pergunta
@@ -55,5 +55,13 @@ CREATE TABLE Imagem (
 		REFERENCES Teste (id)
 		ON DELETE CASCADE
 		ON UPDATE CASCADE,
-	PRIMARY KEY (grau_representado, num_pergunta, id_teste)
+	PRIMARY KEY (grau, num_pergunta, id_teste)
 );
+
+insert into Pesquisador values (1, "Felipe", "123", true);
+insert into Teste values (1, "1aaa", "t1", "jajaja", 1);
+insert into Pergunta values (1, "ccc", "bbb", "discreto", 1);
+insert into Imagem values ("https://www.oetker.com.br/Recipe/Recipes/oetker.com.br/br-pt/baking/image-thumb__40233__RecipeDetailsLightBox/bolo-red-velvet.jpg", 1, 1, 1);
+insert into Imagem values ("https://www.oetker.com.br/Recipe/Recipes/oetker.com.br/br-pt/baking/image-thumb__40233__RecipeDetailsLightBox/bolo-red-velvet.jpg", 2, 1, 1);
+insert into Pergunta values (2, "ccc", "bbb", "discreto", 1);
+insert into Teste values (2, "2aaa", "t1", "jajaja", 1);

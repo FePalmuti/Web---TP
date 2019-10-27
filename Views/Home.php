@@ -8,7 +8,7 @@
         <form action="Pesquisador/Cadastro.php">
             <input type="submit" value="Cadastrar">
         </form>
-        <form action="Views/Pesquisador/Login.php">
+        <form action="Pesquisador/Login.php">
             <input type="submit" value="Login">
         </form>
         <br>

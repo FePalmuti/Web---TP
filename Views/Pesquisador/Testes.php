@@ -8,28 +8,31 @@
         <?php
             require_once "../../Models/Teste.php";
             require_once "../../Models/Pergunta.php";
+            require_once "../../Models/Imagem.php";
 
             session_start();
             $lista_testes = $_SESSION["lista_testes"];
             $matriz_perguntas = $_SESSION["matriz_perguntas"];
+            $matriz_imagens = $_SESSION["matriz_imagens"];
+
             for($i=0; $i<count($lista_testes); $i++) {
                 $teste = $lista_testes[$i];
                 $lista_perguntas = $matriz_perguntas[$i];
                 echo $teste->getId(), " - ", $teste->getNome();
-                foreach($lista_perguntas as $pergunta) {
+                for($j=0; $j<count($lista_perguntas); $j++) {
+                    $pergunta = $matriz_perguntas[$i][$j];
                     echo "<br>";
                     echo "---", $pergunta->getDescricao(), " - ", $pergunta->getTipo();
+                    echo "<br>";
+                    $lista_imagens = $matriz_imagens[$i][$j];
+                    for($k=0; $k<count($lista_imagens); $k++) {
+                        $imagem = $matriz_imagens[$i][$j][$k];
+                        $arquivo = $imagem->getArquivo();
+                        echo "<img src=".$arquivo." height='100'>";
+                    }
                 }
                 echo "<br>";
             }
-            // Melhorar!
-            //--------------------
-            foreach($_SESSION["matriz_imagens"] as $lista_imagens) {
-                foreach($lista_imagens as $imagem) {
-                    echo "<img src='".$imagem."' height='100'>";
-                }
-            }
-            //--------------------
         ?>
         <form action="../../Views/Pesquisador/NovoTeste.php">
             <input type="submit" value="Novo">
