@@ -7,28 +7,20 @@
     <body>
         <?php
             require_once "../../Models/Teste.php";
-            require_once "../../Models/Pergunta.php";
-            require_once "../../Models/Imagem.php";
 
             session_start();
             $lista_testes = $_SESSION["lista_testes"];
 
+            $cont = 0;
             foreach($lista_testes as $teste) {
-                echo $teste->getId(), " - ", $teste->getNome();
-                foreach($teste->getListaPerguntas() as $pergunta) {
-                    echo "<br>";
-                    echo "---", $pergunta->getDescricao(), " - ", $pergunta->getTipo();
-                    echo "<br>";
-                    foreach($pergunta->getListaImagens() as $imagem) {
-                        $arquivo = $imagem->getArquivo();
-                        echo "<img src=".$arquivo." height='100'>";
-                    }
-                }
+                echo $teste->getId(), " - ", $teste->getNome(), " - ", $teste->getCodigoAcesso();
+                echo "<a href='TesteDetalhado.php?pos_teste=".$cont."'>></a>";
                 echo "<br>";
-                echo "<br>";
+                $cont++;
             }
+            echo "<br>";
         ?>
-        <form action="../../Views/Pesquisador/NovoTeste.php">
+        <form action="NovoTeste.php">
             <input type="submit" value="Novo">
         </form>
     </body>

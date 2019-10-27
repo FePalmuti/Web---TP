@@ -72,7 +72,7 @@ insert into Imagem values ("https://www.oetker.com.br/Recipe/Recipes/oetker.com.
 insert into Imagem values ("https://www.oetker.com.br/Recipe/Recipes/oetker.com.br/br-pt/baking/image-thumb__40233__RecipeDetailsLightBox/bolo-red-velvet.jpg", 2, 2, 1);
 insert into Imagem values ("https://www.oetker.com.br/Recipe/Recipes/oetker.com.br/br-pt/baking/image-thumb__40233__RecipeDetailsLightBox/bolo-red-velvet.jpg", 3, 2, 1);
 
-insert into Teste values (2, "2aaa", "Teste1", "...", 1);
+insert into Teste values (2, "2aaa", "Teste2", "...", 1);
 #
 insert into Pergunta values (1, "...", "Item1", "discreto", 2);
 insert into Imagem values ("../../Img/C.png", 1, 1, 2);
