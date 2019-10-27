@@ -9,6 +9,7 @@
             require_once "../../Models/Teste.php";
             require_once "../../Models/Pergunta.php";
 
+            session_start();
             $lista_testes = $_SESSION["lista_testes"];
             $matriz_perguntas = $_SESSION["matriz_perguntas"];
             for($i=0; $i<count($lista_testes); $i++) {

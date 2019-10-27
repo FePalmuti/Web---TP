@@ -18,5 +18,5 @@
     // Guarda a pergunta na sessao
     array_push($_SESSION["lista_perguntas"], $pergunta);
     $_SESSION["qnt_imagens"] = $qnt_imagens;
-    require_once "../../Views/Pesquisador/DefinirImagens.php";
+    header("Location:../../Views/Pesquisador/DefinirImagens.php");
 ?>

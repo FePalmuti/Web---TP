@@ -3,12 +3,13 @@
     require_once "../../Models/TesteDAO.php";
     require_once "../../Models/PerguntaDAO.php";
 
+    session_start();
     $id_pesquisador = $_SESSION["id_pesquisador"];
 
     // Estabelece conexao com o BD
     $conexao = new Conexao();
     if(! $conexao->conectar()) {
-        require_once "../../Views/Erros/ErroConexao.php";
+        header("Location:../../Views/Erros/ErroConexao.php");
         die();
     }
 
@@ -32,5 +33,6 @@
     // Redireciona para a view
     $_SESSION["lista_testes"] = $lista_testes;
     $_SESSION["matriz_perguntas"] = $matriz_perguntas;
-    require_once "../../Views/Pesquisador/Testes.php";
+    $_SESSION["matriz_imagens"] = array();
+    header("Location:../../Views/Pesquisador/Testes.php");
 ?>

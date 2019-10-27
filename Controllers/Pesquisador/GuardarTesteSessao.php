@@ -11,7 +11,7 @@
     // Estabelece conexao com o BD
     $conexao = new Conexao();
     if(! $conexao->conectar()) {
-        require_once "../../Views/Erros/ErroConexao.php";
+        header("Location:../../Views/Erros/ErroConexao.php");
         die();
     }
 
@@ -29,5 +29,5 @@
     $_SESSION["teste"] = $teste;
     $_SESSION["lista_perguntas"] = array();
     $_SESSION["matriz_imagens"] = array();
-    require_once "../../Views/Pesquisador/NovaPergunta.php";
+    header("Location:../../Views/Pesquisador/NovaPergunta.php");
 ?>

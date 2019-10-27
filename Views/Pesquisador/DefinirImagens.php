@@ -7,6 +7,7 @@
     <body>
         <form action="../../Controllers/Pesquisador/GuardarImagensSessao.php", method="post">
             <?php
+                session_start();
                 $qnt_imagens = $_SESSION["qnt_imagens"];
                 for ($i=0; $i<$qnt_imagens; $i++) {
                     echo "<input type='text' name='img_".$i."'>";

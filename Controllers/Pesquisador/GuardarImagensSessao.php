@@ -9,5 +9,5 @@
     }
     array_push($_SESSION["matriz_imagens"], $lista_imagens);
 
-    require_once "../../Views/Pesquisador/NovaPergunta.php"
+    header("Location:../../Views/Pesquisador/NovaPergunta.php");
 ?>

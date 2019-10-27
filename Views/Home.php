@@ -5,7 +5,7 @@
         <title></title>
     </head>
     <body>
-        <form action="Views/Pesquisador/Cadastro.php">
+        <form action="Pesquisador/Cadastro.php">
             <input type="submit" value="Cadastrar">
         </form>
         <form action="Views/Pesquisador/Login.php">

@@ -9,7 +9,7 @@
     // Estabelece conexao com o BD
     $conexao = new Conexao();
     if(! $conexao->conectar()) {
-        require_once "../../Views/Erros/ErroConexao.php";
+        header("Location:../../Views/Erros/ErroConexao.php");
         die();
     }
 
@@ -25,12 +25,12 @@
     $pesquisador = new Pesquisador($id, $nome, $senha, True);
     $result = $pesquisadorDAO->cadastrar($conexao->getLink(), $pesquisador);
     if(! $result) {
-        require_once "../../Views/Erros/ErroSQL.php";
+        header("Location:../../Views/Erros/ErroSQL.php");
         die();
     }
 
     // Inicia sessao
     session_start();
     $_SESSION["id_pesquisador"] = $pesquisador->getId();
-    require_once "ExibirTestes.php";
+    header("Location:ExibirTestes.php");
 ?>

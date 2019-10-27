@@ -10,7 +10,7 @@
     // Estabelece conexao com o BD
     $conexao = new Conexao();
     if(! $conexao->conectar()) {
-        require_once "../../Views/Erros/ErroConexao.php";
+        header("Location:../../Views/Erros/ErroConexao.php");
         die();
     }
 
@@ -18,7 +18,7 @@
     $testeDAO = new TesteDAO();
     $result = $testeDAO->cadastrar($conexao->getLink(), $teste);
     if(! $result) {
-        require_once "../../Views/Erros/ErroSQL.php";
+        header("Location:../../Views/Erros/ErroSQL.php");
         die();
     }
 
@@ -32,5 +32,5 @@
     // Salvar imagens no BD
     //-----------------------------------------
 
-    require_once "ExibirTestes.php";
+    header("Location:ExibirTestes.php");
 ?>
