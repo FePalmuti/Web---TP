@@ -39,5 +39,9 @@
         public function getListaImagens() {
             return $this->lista_imagens;
         }
+
+        public function setListaImagens($lista_imagens) {
+            $this->lista_imagens = $lista_imagens;
+        }
     }
 ?>

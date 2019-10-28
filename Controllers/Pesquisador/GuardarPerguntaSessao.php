@@ -3,20 +3,22 @@
     require_once "../../Models/Pergunta.php";
 
     session_start();
-    $lista_perguntas = $_SESSION["lista_perguntas"];
+    $teste = $_SESSION["teste"];
+    $qnt_perguntas = count($teste->getListaPerguntas());
 
-    $numero = count($lista_perguntas) + 1;
+    $numero = $qnt_perguntas + 1;
     $instrucoes = $_POST["instrucoes"];
     $descricao = $_POST["descricao"];
     $tipo = $_POST["tipo"];
-    $qnt_imagens = $_POST["qnt_imagens"];
-    $id_teste = $_SESSION["teste"]->getId();
+    $id_teste = $teste->getId();
 
     // Cria a pergunta
-    $pergunta = new Pergunta($numero, $instrucoes, $descricao, $tipo, $id_teste);
+    $pergunta = new Pergunta($numero, $instrucoes, $descricao, $tipo, $id_teste, array());
+    // Guarda a pergunta no teste
+    $_SESSION["teste"]->adicionarPergunta($pergunta);
 
-    // Guarda a pergunta na sessao
-    array_push($_SESSION["lista_perguntas"], $pergunta);
+    // Guarda na sessao a quantidade de imagens que devem ser dadas do usuario
+    $qnt_imagens = $_POST["qnt_imagens"];
     $_SESSION["qnt_imagens"] = $qnt_imagens;
     header("Location:../../Views/Pesquisador/DefinirImagens.php");
 ?>

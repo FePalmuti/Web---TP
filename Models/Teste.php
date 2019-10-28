@@ -1,4 +1,6 @@
 <?php
+    require_once "Pergunta.php";
+
     class Teste {
         private $id;
         private $codigo_acesso;
@@ -38,6 +40,16 @@
 
         public function getListaPerguntas() {
             return $this->lista_perguntas;
+        }
+
+        public function adicionarPergunta($pergunta) {
+            array_push($this->lista_perguntas, $pergunta);
+        }
+
+        public function adicionarImagensNaUltimaPergunta($lista_imagens) {
+            $qnt_perguntas = count($this->lista_perguntas);
+            $pergunta = $this->lista_perguntas[$qnt_perguntas - 1];
+            $pergunta->setListaImagens($lista_imagens);
         }
     }
 ?>

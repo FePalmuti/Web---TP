@@ -23,11 +23,9 @@
     }
     $id = (int) $qnt + 1;
     $codigo_acesso = Utilidades::gerarCodigoDeAcesso($id);
-    $teste = new Teste($id, $codigo_acesso, $nome, $descricao, $id_pesquisador);
+    $teste = new Teste($id, $codigo_acesso, $nome, $descricao, $id_pesquisador, array());
 
     // Guarda na sessao
     $_SESSION["teste"] = $teste;
-    $_SESSION["lista_perguntas"] = array();
-    $_SESSION["matriz_imagens"] = array();
     header("Location:../../Views/Pesquisador/NovaPergunta.php");
 ?>

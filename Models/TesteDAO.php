@@ -10,6 +10,16 @@
             if(! $result) {
                 return False;
             }
+            // Cadastro das perguntas do teste
+            //--------------------
+            $perguntaDAO = new PerguntaDAO();
+            foreach($teste->getListaPerguntas() as $pergunta) {
+                $result = $perguntaDAO->cadastrar($linkConexao, $pergunta);
+                if(! $result) {
+                    return False;
+                }
+            }
+            //--------------------
             return True;
         }
 

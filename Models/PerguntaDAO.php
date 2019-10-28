@@ -9,6 +9,16 @@
             if(! $result) {
                 return False;
             }
+            // Cadastro das imagens da pergunta
+            //--------------------
+            $imagemDAO = new ImagemDAO();
+            foreach($pergunta->getListaImagens() as $imagem) {
+                $result = $imagemDAO->cadastrar($linkConexao, $imagem);
+                if(! $result) {
+                    return False;
+                }
+            }
+            //--------------------
             return True;
         }
 

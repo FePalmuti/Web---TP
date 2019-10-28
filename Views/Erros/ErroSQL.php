@@ -5,6 +5,6 @@
         <title></title>
     </head>
     <body>
-        Erro na consulta SQL!
+        Erro em operacao SQL!
     </body>
 </html>
