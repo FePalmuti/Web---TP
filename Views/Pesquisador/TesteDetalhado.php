@@ -15,18 +15,17 @@
             $pos_teste = $_POST["pos_teste"];
 
             $teste = $lista_testes[$pos_teste];
-            echo $teste->getId(), " - ", $teste->getNome(), " - ", $teste->getCodigoAcesso();
+            // Printa informacoes sobre o teste
+            echo $teste->getId(), "<br>", $teste->getNome(), "<br>", $teste->getCodigoAcesso(), "<br>";
             foreach($teste->getListaPerguntas() as $pergunta) {
-                echo "<br>";
-                echo "---", $pergunta->getDescricao(), " - ", $pergunta->getTipo();
-                echo "<br>";
+                // Printa informacoes sobre a pergunta
+                echo "<br>", $pergunta->getNumero(), " - ", $pergunta->getDescricao(), " - ", $pergunta->getTipo(), "<br>";
                 foreach($pergunta->getListaImagens() as $imagem) {
                     $arquivo = $imagem->getArquivo();
                     echo "<img src=".$arquivo." height='100'>";
                 }
+                echo "<br>";
             }
-            echo "<br>";
-            echo "<br>";
         ?>
     </body>
 </html>
