@@ -13,12 +13,14 @@
 
             $cont = 0;
             foreach($lista_testes as $teste) {
-                echo $teste->getId(), " - ", $teste->getNome(), " - ", $teste->getCodigoAcesso();
-                echo "<a href='TesteDetalhado.php?pos_teste=".$cont."'>></a>";
+                echo "<form action='TesteDetalhado.php', method='post'>";
+                    echo $teste->getId(), " - ", $teste->getNome(), " - ", $teste->getCodigoAcesso(), " - ";
+                    echo "<input type='hidden' name='pos_teste' value='".$cont."'>";
+                    echo "<input type='submit' value='>'>";
+                echo "</form>";
                 echo "<br>";
                 $cont++;
             }
-            echo "<br>";
         ?>
         <form action="NovoTeste.php">
             <input type="submit" value="Novo">

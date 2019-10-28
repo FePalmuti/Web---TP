@@ -12,7 +12,7 @@
 
             session_start();
             $lista_testes = $_SESSION["lista_testes"];
-            $pos_teste = $_GET["pos_teste"];
+            $pos_teste = $_POST["pos_teste"];
 
             $teste = $lista_testes[$pos_teste];
             echo $teste->getId(), " - ", $teste->getNome(), " - ", $teste->getCodigoAcesso();
