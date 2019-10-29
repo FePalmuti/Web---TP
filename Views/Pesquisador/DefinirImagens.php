@@ -5,12 +5,13 @@
         <title></title>
     </head>
     <body>
-        <form action="../../Controllers/Pesquisador/GuardarImagensSessao.php", method="post">
+        <form action="../../Controllers/Pesquisador/GuardarImagensSessao.php", method="post", enctype="multipart/form-data">
             <?php
                 session_start();
                 $qnt_imagens = $_SESSION["qnt_imagens"];
                 for ($i=1; $i<=$qnt_imagens; $i++) {
-                    echo "<input type='text' name='img_".$i."'>";
+                    echo "<input type='file' name='arq_img_".$i."'>";
+                    echo "<input type='text' name='url_img_".$i."' value=''>";
                     echo "<br>";
                 }
             ?>
