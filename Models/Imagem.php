@@ -27,5 +27,9 @@
         public function getIdTeste() {
             return $this->id_teste;
         }
+
+        public function setArquivo($novo_arquivo) {
+            $this->arquivo = $novo_arquivo;
+        }
     }
 ?>

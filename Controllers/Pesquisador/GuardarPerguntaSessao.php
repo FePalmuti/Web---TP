@@ -17,7 +17,7 @@
     // Guarda a pergunta no teste
     $_SESSION["teste"]->adicionarPergunta($pergunta);
 
-    // Guarda na sessao a quantidade de imagens que devem ser dadas do usuario
+    // Guarda na sessao a quantidade de imagens que devem ser dadas pelo usuario
     $qnt_imagens = $_POST["qnt_imagens"];
     $_SESSION["qnt_imagens"] = $qnt_imagens;
     header("Location:../../Views/Pesquisador/DefinirImagens.php");
