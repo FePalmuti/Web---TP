@@ -11,7 +11,6 @@
                 $qnt_imagens = $_SESSION["qnt_imagens"];
                 for ($i=1; $i<=$qnt_imagens; $i++) {
                     echo "<input type='file' name='arq_img_".$i."'>";
-                    echo "<input type='text' name='url_img_".$i."' value=''>";
                     echo "<br>";
                 }
             ?>

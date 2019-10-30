@@ -20,5 +20,5 @@
     // Guarda na sessao a quantidade de imagens que devem ser dadas pelo usuario
     $qnt_imagens = $_POST["qnt_imagens"];
     $_SESSION["qnt_imagens"] = $qnt_imagens;
-    header("Location:../../Views/Pesquisador/DefinirImagens.php");
+    header("Location:../../Views/Pesquisador/DefinicaoImagens.php");
 ?>
