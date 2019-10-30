@@ -9,11 +9,17 @@
     $numero = $qnt_perguntas + 1;
     $instrucoes = $_POST["instrucoes"];
     $descricao = $_POST["descricao"];
+    if($descricao == "X") {
+        $sem_descricao = True;
+    }
+    else {
+        $sem_descricao = False;
+    }
     $tipo = $_POST["tipo"];
     $id_teste = $teste->getId();
 
     // Cria a pergunta
-    $pergunta = new Pergunta($numero, $instrucoes, $descricao, $tipo, $id_teste, array());
+    $pergunta = new Pergunta($numero, $instrucoes, $descricao, $sem_descricao, $tipo, $id_teste, array());
     // Guarda a pergunta no teste
     $_SESSION["teste"]->adicionarPergunta($pergunta);
 

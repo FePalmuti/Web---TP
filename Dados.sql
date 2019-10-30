@@ -30,6 +30,7 @@ CREATE TABLE Pergunta (
 	numero int,
 	instrucoes varchar(100),
 	descricao varchar(100),
+	sem_descricao boolean,
 	tipo enum('discreto', 'continuo'),
 	id_teste int,
 	CONSTRAINT fk_Pergunta_Teste
