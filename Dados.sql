@@ -42,16 +42,28 @@ CREATE TABLE Pergunta (
 );
 
 CREATE TABLE Imagem (
-	arquivo varchar(200),
+	id int NOT NULL AUTO_INCREMENT,
+	arquivo varchar(30),
+	PRIMARY KEY (id),
+	UNIQUE (arquivo)
+);
+
+CREATE TABLE Alternativa (
+	arquivo_imagem varchar(30),
 	grau int,
-    num_pergunta int,
-    id_teste int,
-	CONSTRAINT fk_Imagem_Num_Pergunta
+	num_pergunta int,
+	id_teste int,
+	CONSTRAINT fk_Alternativa_ID_Imagem
+		FOREIGN KEY (arquivo_imagem)
+		REFERENCES Imagem (arquivo)
+		ON DELETE SET NULL
+		ON UPDATE SET NULL,
+	CONSTRAINT fk_Alternativa_Num_Pergunta
 		FOREIGN KEY (num_pergunta)
 		REFERENCES Pergunta (numero)
 		ON DELETE CASCADE
 		ON UPDATE CASCADE,
-	CONSTRAINT fk_Imagem_ID_Teste
+	CONSTRAINT fk_Alternativa_ID_Teste
 		FOREIGN KEY (id_teste)
 		REFERENCES Teste (id)
 		ON DELETE CASCADE

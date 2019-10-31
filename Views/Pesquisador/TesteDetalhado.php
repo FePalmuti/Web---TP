@@ -8,7 +8,7 @@
         <?php
             require_once "../../Models/Teste.php";
             require_once "../../Models/Pergunta.php";
-            require_once "../../Models/Imagem.php";
+            require_once "../../Models/Alternativa.php";
 
             session_start();
             $lista_testes = $_SESSION["lista_testes"];
@@ -20,8 +20,8 @@
             foreach($teste->getListaPerguntas() as $pergunta) {
                 // Printa informacoes sobre a pergunta
                 echo "<br>", $pergunta->getNumero(), " - ", $pergunta->getDescricao(), " - ", $pergunta->getTipo(), "<br>";
-                foreach($pergunta->getListaImagens() as $imagem) {
-                    $arquivo = $imagem->getArquivo();
+                foreach($pergunta->getListaAlternativas() as $alternativa) {
+                    $arquivo = $alternativa->getArquivoImagem();
                     echo "<img src=".$arquivo." height='100'>";
                 }
                 echo "<br>";

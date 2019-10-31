@@ -6,16 +6,16 @@
         private $sem_descricao;
         private $tipo;
         private $id_teste;
-        private $lista_imagens;
+        private $lista_alternativas;
 
-        public function Pergunta($numero, $instrucoes, $descricao, $sem_descricao, $tipo, $id_teste, $lista_imagens) {
+        public function Pergunta($numero, $instrucoes, $descricao, $sem_descricao, $tipo, $id_teste, $lista_alternativas) {
             $this->numero = $numero;
             $this->instrucoes = $instrucoes;
             $this->descricao = $descricao;
             $this->sem_descricao = $sem_descricao;
             $this->tipo = $tipo;
             $this->id_teste = $id_teste;
-            $this->lista_imagens = $lista_imagens;
+            $this->lista_alternativas = $lista_alternativas;
         }
 
         public function getNumero() {
@@ -42,12 +42,12 @@
             return $this->id_teste;
         }
 
-        public function getListaImagens() {
-            return $this->lista_imagens;
+        public function getListaAlternativas() {
+            return $this->lista_alternativas;
         }
 
-        public function setListaImagens($lista_imagens) {
-            $this->lista_imagens = $lista_imagens;
+        public function setListaAlternativas($lista_alternativas) {
+            $this->lista_alternativas = $lista_alternativas;
         }
     }
 ?>

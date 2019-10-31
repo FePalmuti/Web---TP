@@ -1,6 +1,7 @@
 <?php
     require_once "Pergunta.php";
-    require_once "ImagemDAO.php";
+    require_once "Alternativa.php";
+    require_once "AlternativaDAO.php";
 
     class PerguntaDAO {
         public function cadastrar($linkConexao, $pergunta) {
@@ -9,11 +10,11 @@
             if(! $result) {
                 return False;
             }
-            // Cadastro das imagens da pergunta
+            // Cadastro das alternativas da pergunta
             //--------------------
-            $imagemDAO = new ImagemDAO();
-            foreach($pergunta->getListaImagens() as $imagem) {
-                $result = $imagemDAO->cadastrar($linkConexao, $imagem);
+            $alternativaDAO = new AlternativaDAO();
+            foreach($pergunta->getListaAlternativas() as $alternativa) {
+                $result = $alternativaDAO->cadastrar($linkConexao, $alternativa);
                 if(! $result) {
                     return False;
                 }
@@ -31,15 +32,15 @@
             $lista_perguntas = array();
             // Monta cada objeto pergunta
             while($pergunta = mysqli_fetch_object($result)) {
-                // Busca as imagens da pergunta
+                // Busca as alternativas da pergunta
                 //--------------------
-                $imagemDAO = new ImagemDAO();
-                $lista_imagens = $imagemDAO->buscar($linkConexao, $pergunta->numero, $id_teste);
-                if(! $lista_imagens) {
-                    $lista_imagens = array();
+                $alternativaDAO = new AlternativaDAO();
+                $lista_alternativas = $alternativaDAO->buscar($linkConexao, $pergunta->numero, $id_teste);
+                if(! $lista_alternativas) {
+                    $lista_alternativas = array();
                 }
                 //--------------------
-                $pergunta = new Pergunta($pergunta->numero, $pergunta->instrucoes, $pergunta->descricao, $pergunta->sem_descricao, $pergunta->tipo, $pergunta->id_teste, $lista_imagens);
+                $pergunta = new Pergunta($pergunta->numero, $pergunta->instrucoes, $pergunta->descricao, $pergunta->sem_descricao, $pergunta->tipo, $pergunta->id_teste, $lista_alternativas);
                 array_push($lista_perguntas, $pergunta);
             }
             return $lista_perguntas;

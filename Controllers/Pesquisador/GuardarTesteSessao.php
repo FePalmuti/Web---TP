@@ -23,6 +23,7 @@
     }
     $id = (int) $qnt + 1;
     $codigo_acesso = Utilidades::gerarCodigoDeAcesso($id);
+    // Cria um teste, ainda sem perguntas
     $teste = new Teste($id, $codigo_acesso, $nome, $descricao, $id_pesquisador, array());
 
     // Guarda na sessao

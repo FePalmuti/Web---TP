@@ -46,10 +46,10 @@
             array_push($this->lista_perguntas, $pergunta);
         }
 
-        public function adicionarImagensNaUltimaPergunta($lista_imagens) {
+        public function adicionarAlternativasNaUltimaPergunta($lista_alternativas) {
             $qnt_perguntas = count($this->lista_perguntas);
             $pergunta = $this->lista_perguntas[$qnt_perguntas - 1];
-            $pergunta->setListaImagens($lista_imagens);
+            $pergunta->setListaAlternativas($lista_alternativas);
         }
     }
 ?>
