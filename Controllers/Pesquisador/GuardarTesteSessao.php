@@ -2,6 +2,7 @@
     require_once "../../Models/Conexao.php";
     require_once "../../Models/TesteDAO.php";
     require_once "../../Models/Teste.php";
+    require_once "../../Models/ImagemDAO.php";
 
     session_start();
     $nome = $_POST["nome"];
@@ -26,7 +27,15 @@
     // Cria um teste, ainda sem perguntas
     $teste = new Teste($id, $codigo_acesso, $nome, $descricao, $id_pesquisador, array());
 
+    // Obtem todas as imagens
+    $imagemDAO = new ImagemDAO();
+    $todas_imagens = $imagemDAO->buscarTodas($conexao->getLink());
+    if(! $todas_imagens) {
+        $todas_imagens = array();
+    }
+
     // Guarda na sessao
     $_SESSION["teste"] = $teste;
+    $_SESSION["todas_imagens"] = $todas_imagens;
     header("Location:../../Views/Pesquisador/NovaPergunta.php");
 ?>

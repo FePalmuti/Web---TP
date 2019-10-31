@@ -11,16 +11,18 @@
             return True;
         }
 
-        public function buscarTodas($linkConexao, $id) {
+        public function buscarTodas($linkConexao) {
             $consulta = "SELECT * FROM Imagem;";
             $result = mysqli_query($linkConexao, $consulta);
             if(! $result) {
                 return False;
             }
+            $lista_imagens = array();
             while($linha = mysqli_fetch_object($result)) {
                 $imagem = new Imagem($linha->id, $linha->arquivo);
-                return $imagem;
+                array_push($lista_imagens, $imagem);
             }
+            return $lista_imagens;
         }
 
         public function quantidadeImagens($linkConexao) {
