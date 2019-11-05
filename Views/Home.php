@@ -12,8 +12,8 @@
             <input type="submit" value="Login">
         </form>
         <br>
-        <form action="">
-            <input type="text" placeholder="Codigo do teste...">
+        <form action="../Controllers/Participante/VerificarCodigoAcesso.php" method="post">
+            <input type="text" placeholder="Codigo do teste..." name="codigo">
             <input type="submit" value="Procurar">
         </form>
     </body>
