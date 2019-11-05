@@ -36,5 +36,5 @@
     $respostaTeste = new RespostaTeste($id_resposta_teste, $dadosDemograficos, array(), $id_teste);
 
     $_SESSION["resposta_teste"] = $respostaTeste;
-#    header("Location:ExibirTeste.php");
+    header("Location:../../Views/Participante/ExibirTeste.php");
 ?>

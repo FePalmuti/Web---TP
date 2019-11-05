@@ -31,7 +31,7 @@ CREATE TABLE Pergunta (
 	instrucoes varchar(100),
 	descricao varchar(100),
 	sem_descricao boolean,
-	tipo enum('discreto', 'continuo'),
+	tipo enum('discreta', 'continua'),
 	id_teste int,
 	CONSTRAINT fk_Pergunta_Teste
 		FOREIGN KEY (id_teste)

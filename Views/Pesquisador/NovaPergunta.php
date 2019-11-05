@@ -5,7 +5,7 @@
         <title></title>
         <script type="text/javascript">
             function verificarTipo() {
-                if(document.getElementById("tipo").value == "continuo") {
+                if(document.getElementById("tipo").value == "continua") {
                     document.getElementById("qnt_imagens").getElementsByTagName("option")[0].disabled = false;
                     document.getElementById("qnt_imagens").getElementsByTagName("option")[1].disabled = true;
                     document.getElementById("qnt_imagens").getElementsByTagName("option")[2].disabled = true;
@@ -35,17 +35,17 @@
             <input type="text" placeholder="Descricao..." name="descricao">
             <br>
             <select name="tipo" id="tipo" onchange="verificarTipo()">
-                <option value="discreto">Discreto</option>
-                <option value="continuo">Continuo</option>
+                <option value="continua">Continuo</option>
+                <option value="discreta">Discreto</option>
             </select>
             <br>
             <select name="qnt_imagens" id="qnt_imagens">
-                <option disabled value="3">3</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
+                <option value="3">3</option>
+                <option disabled value="5">5</option>
+                <option disabled value="6">6</option>
+                <option disabled value="7">7</option>
+                <option disabled value="8">8</option>
+                <option disabled value="9">9</option>
             </select>
             <br>
             <input type="submit" value="Guardar item">
