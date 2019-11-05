@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title></title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <style>
             .scroll {
                 overflow-x: hidden;
@@ -17,20 +18,28 @@
             .margem_esq {
                 margin-left: 40px;
             }
+            .selecionada {
+                border:solid 1px red;
+            }
         </style>
         <script type="text/javascript">
-            var imagem_selecionada = "Nenhuma";
+            var label_img_selecionada = "Nenhuma";
+            var img_selecionada = null;
 
-            function marcarImagemSelecionada(caminho_imagem) {
-                imagem_selecionada = caminho_imagem;
+            function marcarImagemSelecionada(id_img, caminho_imagem) {
+                label_img_selecionada = caminho_imagem;
+                if(img_selecionada != null) {
+                    img_selecionada.removeClass("selecionada");
+                }
+                img_selecionada = $("#"+id_img).addClass("selecionada");
             }
 
             function encaminharImagem(nome_botao) {
                 // Ignora o "bt_"
                 numero = nome_botao.substring(3);
-                if(imagem_selecionada != "Nenhuma") {
-                    document.getElementById("lb_img_" + numero).innerHTML = imagem_selecionada;
-                    document.getElementById("dir_img_" + numero).value = imagem_selecionada;
+                if(label_img_selecionada != "Nenhuma") {
+                    document.getElementById("lb_img_" + numero).innerHTML = label_img_selecionada;
+                    document.getElementById("dir_img_" + numero).value = label_img_selecionada;
                 }
             }
         </script>
@@ -60,10 +69,10 @@
                     $cont = 0;
                     foreach($todas_imagens as $imagem) {
                         $arquivo = $imagem->getArquivo();
-                        echo "<img src='".$arquivo."' name='".$arquivo."' onclick='marcarImagemSelecionada(this.name);'>";
+                        echo "<img src='".$arquivo."' id='img_".$cont."' name='".$arquivo."' onclick='marcarImagemSelecionada(this.id, this.name);'>";
                         $cont++;
                         // 3 imagens por linha
-                        if($cont == 3) {
+                        if($cont % 3 == 0) {
                             echo "<br>";
                         }
                     }

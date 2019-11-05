@@ -6,12 +6,24 @@
         <script type="text/javascript">
             function verificarTipo() {
                 if(document.getElementById("tipo").value == "continuo") {
+                    document.getElementById("qnt_imagens").getElementsByTagName("option")[0].disabled = false;
+                    document.getElementById("qnt_imagens").getElementsByTagName("option")[1].disabled = true;
+                    document.getElementById("qnt_imagens").getElementsByTagName("option")[2].disabled = true;
+                    document.getElementById("qnt_imagens").getElementsByTagName("option")[3].disabled = true;
+                    document.getElementById("qnt_imagens").getElementsByTagName("option")[4].disabled = true;
+                    document.getElementById("qnt_imagens").getElementsByTagName("option")[5].disabled = true;
+                    //
                     document.getElementById("qnt_imagens").getElementsByTagName("option")[0].selected = true;
-                    document.getElementById("qnt_imagens").disabled = true;
                 }
                 else {
+                    document.getElementById("qnt_imagens").getElementsByTagName("option")[0].disabled = true;
+                    document.getElementById("qnt_imagens").getElementsByTagName("option")[1].disabled = false;
+                    document.getElementById("qnt_imagens").getElementsByTagName("option")[2].disabled = false;
+                    document.getElementById("qnt_imagens").getElementsByTagName("option")[3].disabled = false;
+                    document.getElementById("qnt_imagens").getElementsByTagName("option")[4].disabled = false;
+                    document.getElementById("qnt_imagens").getElementsByTagName("option")[5].disabled = false;
+                    //
                     document.getElementById("qnt_imagens").getElementsByTagName("option")[1].selected = true;
-                    document.getElementById("qnt_imagens").disabled = false;
                 }
             }
         </script>
