@@ -16,7 +16,7 @@
 
             echo "<br>";
         ?>
-        <form action="ExibirPergunta.php">
+        <form action="ExibicaoPergunta.php">
             <input type="submit" value="Continuar">
         </form>
     </body>

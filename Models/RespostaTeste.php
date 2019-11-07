@@ -27,5 +27,9 @@
         public function getIdTeste() {
             return $this->id_teste;
         }
+
+        public function adicionarRespostaPergunta($resposta_pergunta) {
+            array_push($this->lista_resposta_pergunta, $resposta_pergunta);
+        }
     }
 ?>

@@ -13,11 +13,11 @@
         }
 
         public function getEntradaParticipante() {
-            return $this->entradaParticipante;
+            return $this->entrada_participante;
         }
 
         public function getGrauEscolhido() {
-            return $this->grauEscolhido;
+            return $this->grau_escolhido;
         }
 
         public function getNumeroPergunta() {
