@@ -16,7 +16,7 @@
         $entrada_participante = $_POST["entrada_participante"];
     }
     else {
-        $entrada_participante = null;
+        $entrada_participante = "Nada digitado";
     }
 
     $grau_escolhido = $_POST["escolha"];

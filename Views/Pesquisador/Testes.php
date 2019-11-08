@@ -26,16 +26,20 @@
                 echo "</tr>";
                 $cont = 0;
                 foreach($lista_testes as $teste) {
-                    echo "<form action='TesteDetalhado.php', method='post'>";
-                            echo "<tr>";
-                                echo "<td>", $teste->getId(), "</td>";
-                                echo "<td>", $teste->getCodigoAcesso(), "</td>";
-                                echo "<td>", $teste->getNome(), "</td>";
-                                echo "<td>", $teste->getDescricao(), "</td>";
-                                echo "<td>", "<input type='submit' value='>'>", "</td>";
-                            echo "</tr>";
-                        echo "<input type='hidden' name='pos_teste' value='".$cont."'>";
-                    echo "</form>";
+                    echo "<tr>";
+                        echo "<td>", $teste->getId(), "</td>";
+                        echo "<td>", $teste->getCodigoAcesso(), "</td>";
+                        echo "<td>", $teste->getNome(), "</td>";
+                        echo "<td>", $teste->getDescricao(), "</td>";
+                        echo "<form action='TesteDetalhado.php', method='post'>";
+                            echo "<td>", "<input type='submit' value='Detalhes'>", "</td>";
+                            echo "<input type='hidden' name='pos_teste' value='".$cont."'>";
+                        echo "</form>";
+                        echo "<form action='../../Controllers/Pesquisador/ExibirRespostas.php', method='post'>";
+                            echo "<td>", "<input type='submit' value='Repostas'>", "</td>";
+                            echo "<input type='hidden' name='pos_teste' value='".$cont."'>";
+                        echo "</form>";
+                    echo "</tr>";
                     $cont++;
                 }
             echo "</table>";

@@ -31,6 +31,37 @@
             return True;
         }
 
+        public function buscar($linkConexao, $id_teste) {
+            $consulta = "SELECT * FROM RespostaTeste WHERE id_teste=\"".$id_teste."\";";
+            $result = mysqli_query($linkConexao, $consulta);
+            if(! $result) {
+                return False;
+            }
+            $lista_resposta_teste = array();
+            // Monta cada objeto resposta
+            while($resposta_teste = mysqli_fetch_object($result)) {
+                // Busca os dados demograficos relacionados a resposta-teste
+                //--------------------
+                $dadosDemograficosDAO = new DadosDemograficosDAO();
+                $dados_demograficos = $dadosDemograficosDAO->buscar($linkConexao, $resposta_teste->id);
+                if(! $dados_demograficos) {
+                    return False;
+                }
+                //--------------------
+                // Busca as respostas-perguntas da resposta-teste
+                //--------------------
+                $respostaPerguntaDAO = new RespostaPerguntaDAO();
+                $lista_resposta_pergunta = $respostaPerguntaDAO->buscar($linkConexao, $resposta_teste->id);
+                if(! $lista_resposta_pergunta) {
+                    $lista_resposta_pergunta = array();
+                }
+                //--------------------
+                $resposta_teste = new RespostaTeste($resposta_teste->id, $dados_demograficos, $lista_resposta_pergunta, $id_teste);
+                array_push($lista_resposta_teste, $resposta_teste);
+            }
+            return $lista_resposta_teste;
+        }
+
         public function quantidadeRespostasTestes($linkConexao) {
             $consulta = "SELECT COUNT(id) AS qnt FROM RespostaTeste;";
             $result = mysqli_query($linkConexao, $consulta);
