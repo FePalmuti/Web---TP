@@ -1,0 +1,77 @@
+
+*{
+    margin: 0; 
+    padding: 0;
+    }
+    html {
+      scroll-behavior: smooth;
+
+    }
+    body {
+    font-family: sans-serif;
+        }
+    
+  .navbar-transparent{
+    background: transparent;
+    border: none;
+  }
+  
+  .navbar-transparent .navbar-nav > li > a,
+  .navbar-transparent .navbar-nav > li > a:hover
+  {
+    color: white;
+    line-height: 50px;
+  }
+  
+  .navbar-transparent .navbar-brand {
+    line-height: 50px;
+  }
+  
+  .navbar-transparent .navbar-nav > .open > a,
+  .navbar-transparent .navbar-nav > .open > a:hover,
+  .navbar-transparent .navbar-nav > .open > a:focus{
+    background: transparent;
+    color: white;
+  }
+  
+  #nav-btn {
+    background-color: #009AAB;
+    color: #fff;
+    border: none;
+    border-radius: 0;
+    margin-top: 20px;
+    line-height: 10px;
+  }
+  .navbar-right{
+    padding-right: 50px;
+  }
+  .content-center {
+    max-width: 800px;
+    margin: 0 auto 60px auto;
+    text-align: center;
+  }
+.form-group > .form-control  {
+    font-size: 14px;
+    border: 1px solid #cacaca;
+    padding: 15px;
+    border-radius: 2px;
+  }
+  .form-group > .form-control:focus {
+    border: 1px solid #1a1a1a;
+    outline: none;
+    box-shadow: none;
+}
+.full-width {
+  width: 100%;
+}
+    #pesquisa {
+      background-color: #A8D8D6;
+      background-size: cover;
+      padding-top: 90px;
+      min-height: 700px;
+      color: #ffffff;
+  }
+#cadastro {
+  padding-top: 100px;
+  padding-right: 100px ;
+}
