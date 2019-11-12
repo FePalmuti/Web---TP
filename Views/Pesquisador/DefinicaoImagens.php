@@ -54,16 +54,29 @@
                 if(tag == "") {
                     todas_imagens.forEach(function(imagem, ind) {
                         grade.append("img")
-                            .attr("src", imagem)
+                            .attr("src", imagem["arq"])
                             .attr("id", "img_"+ind)
-                            .attr("name", imagem)
+                            .attr("name", imagem["arq"])
                             .on("click", function() {
-                                marcarImagemSelecionada("img_"+ind, imagem);
+                                marcarImagemSelecionada("img_"+ind, imagem["arq"]);
                             });
                     });
                 }
+                // Tag diferente de ""
                 else {
-                    //
+                    var ind = 0;
+                    todas_imagens.forEach(function(imagem) {
+                        if(imagem["tag"] == tag) {
+                            grade.append("img")
+                                .attr("src", imagem["arq"])
+                                .attr("id", "img_"+ind)
+                                .attr("name", imagem["arq"])
+                                .on("click", function() {
+                                    marcarImagemSelecionada("img_"+ind, imagem["arq"]);
+                                });
+                            ind++;
+                        }
+                    });
                 }
             }
 
@@ -96,7 +109,7 @@
                 echo "<br><br>";
                 echo "<div class='scroll' id='grade'>";
                     foreach($todas_imagens as $imagem) {
-                        echo "<script>todas_imagens.push('".$imagem->getArquivo()."');</script>";
+                        echo "<script>todas_imagens.push({arq:'".$imagem->getArquivo()."', tag:'".$imagem->getTag()."'});</script>";
                     }
                     echo "<script>atualizarGradeImagens();</script>";
                 echo "</div>";

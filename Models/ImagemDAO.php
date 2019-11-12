@@ -26,20 +26,20 @@
 
         public function buscarTodas($linkConexao) {
             $consulta = "SELECT * FROM Imagem;";
-            $result = mysqli_query($linkConexao, $consulta);
-            if(! $result) {
+            $result_img = mysqli_query($linkConexao, $consulta);
+            if(! $result_img) {
                 return False;
             }
             $lista_imagens = array();
-            while($linha_imagem = mysqli_fetch_object($result)) {
+            while($linha_imagem = mysqli_fetch_object($result_img)) {
                 //--------------------
                 // Obtem tag relacionada
-                $consulta = "SELECT * FROM Relacao_Tag_Imagem;";
-                $result = mysqli_query($linkConexao, $consulta);
-                if(! $result) {
+                $consulta = "SELECT * FROM Relacao_Tag_Imagem WHERE id_imagem = \"".$linha_imagem->id."\";";
+                $result_tag = mysqli_query($linkConexao, $consulta);
+                if(! $result_tag) {
                     return False;
                 }
-                while($linha_tag = mysqli_fetch_object($result)) {
+                while($linha_tag = mysqli_fetch_object($result_tag)) {
                     $tag = $linha_tag->tag;
                 }
                 //--------------------
