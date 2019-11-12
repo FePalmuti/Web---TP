@@ -27,7 +27,7 @@
     $pesquisador = new Pesquisador($id, $nome, $senha, True);
     $result = $pesquisadorDAO->cadastrar($conexao->getLink(), $pesquisador);
     if(! $result) {
-        header("Location:../../Views/Erros/ErroSQL.php");
+        header("Location:../../Views/Erros/ErroNomeEmUso.php");
         die();
     }
 
