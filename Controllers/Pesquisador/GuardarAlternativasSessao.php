@@ -36,7 +36,7 @@
             $extensao = strtolower(substr($arq_imagem["name"], -4));
             $diretorio_imagem = "../../Img/".$id_imagem.$extensao;
             move_uploaded_file($arq_imagem["tmp_name"], $diretorio_imagem);
-            $imagem = new Imagem($id_imagem, $diretorio_imagem);
+            $imagem = new Imagem($id_imagem, $diretorio_imagem, $_POST["tag_img_".$grau]);
             // Grava a imagem
             $result = $imagemDAO->cadastrar($conexao->getLink(), $imagem);
             if(! $result) {

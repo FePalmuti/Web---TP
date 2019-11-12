@@ -86,6 +86,7 @@
                         echo "<input type='hidden' id='dir_img_".$i."' name='dir_img_".$i."'>";
 
                         echo "<input class='margem_esq' type='file' name='arq_img_".$i."'>";
+                        echo "<input class='margem_esq' type='text' name='tag_img_".$i."' placeholder='Tag'>";
                         echo "<br>";
                     }
                 echo "</div>";

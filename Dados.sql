@@ -48,16 +48,16 @@ CREATE TABLE Imagem (
 );
 
 CREATE TABLE Tag (
-	id int NOT NULL,
-	PRIMARY KEY (id)
+	tag varchar(30) NOT NULL,
+	PRIMARY KEY (tag)
 );
 
 CREATE TABLE Relacao_Tag_Imagem (
-	id_tag int,
+	tag varchar(30),
 	id_imagem int,
 	CONSTRAINT fk_Tag
-		FOREIGN KEY (id_tag)
-		REFERENCES Tag (id)
+		FOREIGN KEY (tag)
+		REFERENCES Tag (tag)
 		ON DELETE CASCADE
 		ON UPDATE CASCADE,
 	CONSTRAINT fk_Imagem
@@ -129,3 +129,8 @@ CREATE TABLE DadosDemograficos (
 		ON UPDATE CASCADE,
 	PRIMARY KEY (id_resposta_teste)
 );
+
+
+
+
+#
