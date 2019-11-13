@@ -5,7 +5,8 @@ USE Dados;
 CREATE TABLE Pesquisador (
 	id int NOT NULL,
 	nome varchar(30),
-	senha varchar(30),
+	# A funcao MD5 gera uma string de 32 caracteres
+	senha varchar(40),
 	adm boolean DEFAULT true,
 	PRIMARY KEY (id),
 	UNIQUE (nome, senha)
@@ -129,7 +130,6 @@ CREATE TABLE DadosDemograficos (
 		ON UPDATE CASCADE,
 	PRIMARY KEY (id_resposta_teste)
 );
-
 
 
 
