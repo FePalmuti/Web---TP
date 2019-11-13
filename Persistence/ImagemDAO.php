@@ -1,6 +1,4 @@
 <?php
-    require_once "Imagem.php";
-
     class ImagemDAO {
         public function cadastrar($linkConexao, $imagem) {
             // Grava a imagem

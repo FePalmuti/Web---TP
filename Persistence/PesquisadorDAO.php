@@ -1,6 +1,4 @@
 <?php
-    require_once "Pesquisador.php";
-
     class PesquisadorDAO {
         public function cadastrar($linkConexao, $pesquisador) {
             $consulta = "INSERT INTO Pesquisador VALUES (\"".$pesquisador->getId()."\", \"".$pesquisador->getNome()."\", \"".$pesquisador->getSenha()."\", \"".$pesquisador->getAdm()."\");";

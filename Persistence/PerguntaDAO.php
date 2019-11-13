@@ -1,8 +1,4 @@
 <?php
-    require_once "Pergunta.php";
-    require_once "Alternativa.php";
-    require_once "AlternativaDAO.php";
-
     class PerguntaDAO {
         public function cadastrar($linkConexao, $pergunta) {
             $consulta = "INSERT INTO Pergunta VALUES (\"".$pergunta->getNumero()."\", \"".$pergunta->getInstrucoes()."\", \"".$pergunta->getDescricao()."\", \"".$pergunta->getTipo()."\", \"".$pergunta->getIdTeste()."\");";

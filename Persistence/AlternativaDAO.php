@@ -1,6 +1,4 @@
 <?php
-    require_once "Alternativa.php";
-
     class AlternativaDAO {
         public function cadastrar($linkConexao, $alternativa) {
             $consulta = "INSERT INTO Alternativa VALUES (\"".$alternativa->getArquivoImagem()."\", \"".$alternativa->getGrau()."\", \"".$alternativa->getNumPergunta()."\", \"".$alternativa->getIdTeste()."\");";

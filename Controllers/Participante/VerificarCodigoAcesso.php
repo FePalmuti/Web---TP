@@ -1,7 +1,10 @@
 <?php
     require_once "../../Models/Conexao.php";
-    require_once "../../Models/TesteDAO.php";
     require_once "../../Models/Teste.php";
+    require_once "../../Models/Alternativa.php";
+    require_once "../../Persistence/TesteDAO.php";
+    require_once "../../Persistence/PerguntaDAO.php";
+    require_once "../../Persistence/AlternativaDAO.php";
 
     $codigo_digitado = $_POST["codigo"];
 

@@ -1,9 +1,9 @@
 <?php
     require_once "../../Models/Conexao.php";
-    require_once "../../Models/RespostaTesteDAO.php";
+    require_once "../../Models/Teste.php";
     require_once "../../Models/RespostaTeste.php";
     require_once "../../Models/DadosDemograficos.php";
-    require_once "../../Models/Teste.php";
+    require_once "../../Persistence/RespostaTesteDAO.php";
 
     $email = $_POST["email"];
     $telefone = $_POST["telefone"];

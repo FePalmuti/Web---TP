@@ -1,7 +1,7 @@
 <?php
     require_once "../../Models/Conexao.php";
-    require_once "../../Models/PesquisadorDAO.php";
     require_once "../../Models/Pesquisador.php";
+    require_once "../../Persistence/PesquisadorDAO.php";
 
     $nome = $_POST["nome"];
     $senha = $_POST["senha"];

@@ -1,8 +1,4 @@
 <?php
-    require_once "Teste.php";
-    require_once "PerguntaDAO.php";
-    require_once "../../Utilidades.php";
-
     class TesteDAO {
         public function cadastrar($linkConexao, $teste) {
             $consulta = "INSERT INTO Teste VALUES (\"".$teste->getId()."\", \"".$teste->getCodigoAcesso()."\", \"".$teste->getNome()."\", \"".$teste->getDescricao()."\", \"".$teste->getIdPesquisador()."\");";

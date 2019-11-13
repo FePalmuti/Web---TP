@@ -1,6 +1,11 @@
 <?php
     require_once "../../Models/Conexao.php";
-    require_once "../../Models/RespostaTesteDAO.php";
+    require_once "../../Models/RespostaTeste.php";
+    require_once "../../Models/RespostaPergunta.php";
+    require_once "../../Models/DadosDemograficos.php";
+    require_once "../../Persistence/DadosDemograficosDAO.php";
+    require_once "../../Persistence/RespostaTesteDAO.php";
+    require_once "../../Persistence/RespostaPerguntaDAO.php";
 
     session_start();
     $resposta_teste = $_SESSION["resposta_teste"];

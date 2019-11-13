@@ -2,8 +2,8 @@
     require_once "../../Models/Conexao.php";
     require_once "../../Models/Teste.php";
     require_once "../../Models/Alternativa.php";
-    require_once "../../Models/ImagemDAO.php";
     require_once "../../Models/Imagem.php";
+    require_once "../../Persistence/ImagemDAO.php";
 
     // Estabelece conexao com o BD
     $conexao = new Conexao();
