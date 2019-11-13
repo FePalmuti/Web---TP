@@ -5,10 +5,10 @@
         <title></title>
     </head>
     <body>
-        Obrigado por participar!<br>
+        Relatorio gerado com sucesso!<br>
         <br>
-        <form action="../Home.php">
-            <input type="submit" value="Voltar para a home">
+        <form action="Testes.php">
+            <input type="submit" value="Voltar para os testes">
         </form>
     </body>
 </html>

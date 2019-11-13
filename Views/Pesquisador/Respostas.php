@@ -30,6 +30,9 @@
                     echo "------------------------------------------------------", "<br>";
                     echo "<br>";
                 }
+                echo "<form action='../../Controllers/Pesquisador/GerarCSV.php' method='post'>";
+                    echo "<input type='submit' value='Gerar relatorio'>";
+                echo "</form>";
             }
         ?>
     </body>

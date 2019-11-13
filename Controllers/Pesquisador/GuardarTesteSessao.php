@@ -1,6 +1,7 @@
 <?php
     require_once "../../Models/Conexao.php";
     require_once "../../Models/Teste.php";
+    require_once "../../Models/Imagem.php";
     require_once "../../Persistence/TesteDAO.php";
     require_once "../../Persistence/ImagemDAO.php";
     require_once "../../Utilidades.php";
