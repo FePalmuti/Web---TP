@@ -14,9 +14,12 @@
     // Verifica se ha entrada do participante
     if($pergunta->getDescricao() == "X") {
         $entrada_participante = $_POST["entrada_participante"];
+        if($entrada_participante == "") {
+            $entrada_participante = "NADA FOI DIGITADO";
+        }
     }
     else {
-        $entrada_participante = "Nada digitado";
+        $entrada_participante = "---";
     }
 
     $grau_escolhido = $_POST["escolha"];
