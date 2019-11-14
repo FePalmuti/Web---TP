@@ -21,9 +21,12 @@
 
     // Busca os testes
     $testeDAO = new TesteDAO();
-    $lista_testes = $testeDAO->buscar($conexao->getLink(), $id_pesquisador);
-    if(! $lista_testes) {
+    $retornos = $testeDAO->buscar($conexao->getLink(), $id_pesquisador);
+    if($retornos[0] == null) {
         $lista_testes = array();
+    }
+    else {
+        $lista_testes = $retornos[0];
     }
 
     // Redireciona para a view

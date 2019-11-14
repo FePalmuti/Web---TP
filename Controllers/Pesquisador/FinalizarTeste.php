@@ -21,9 +21,9 @@
 
     // Gravacao do teste
     $testeDAO = new TesteDAO();
-    $result = $testeDAO->cadastrar($conexao->getLink(), $teste);
-    if(! $result) {
-        header("Location:../../Views/Erros/ErroSQL.php");
+    $retornos = $testeDAO->cadastrar($conexao->getLink(), $teste);
+    if($retornos[0] == null) {
+        header("Location:../../Views/Erros/ErroSQL.php?id_erro=".$retornos[1]."&erro=".$retornos[2]);
         die();
     }
 

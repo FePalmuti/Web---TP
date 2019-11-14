@@ -26,9 +26,12 @@
         }
         else if(isset($_FILES["arq_img_".$grau])) {
             // Verifica quantidade de imagens
-            $qnt = $imagemDAO->quantidadeImagens($conexao->getLink());
-            if(! $qnt) {
+            $retornos = $imagemDAO->quantidadeImagens($conexao->getLink());
+            if($retornos[0] == null) {
                 $qnt = 0;
+            }
+            else {
+                $qnt = $retornos[0];
             }
             $id_imagem = $qnt + 1;
             //
@@ -38,9 +41,9 @@
             move_uploaded_file($arq_imagem["tmp_name"], $diretorio_imagem);
             $imagem = new Imagem($id_imagem, $diretorio_imagem, $_POST["tag_img_".$grau]);
             // Grava a imagem
-            $result = $imagemDAO->cadastrar($conexao->getLink(), $imagem);
-            if(! $result) {
-                header("Location:../../Views/Erros/ErroSQL.php");
+            $retornos = $imagemDAO->cadastrar($conexao->getLink(), $imagem);
+            if($retornos[0] == null) {
+                header("Location:../../Views/Erros/ErroSQL.php?id_erro=".$retornos[1]."&erro=".$retornos[2]);
                 die();
             }
             //

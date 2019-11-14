@@ -19,9 +19,9 @@
 
     // Gravacao do resposta teste
     $respostaTesteDAO = new RespostaTesteDAO();
-    $result = $respostaTesteDAO->cadastrar($conexao->getLink(), $resposta_teste);
-    if(! $result) {
-        header("Location:../../Views/Erros/ErroSQL.php");
+    $retornos = $respostaTesteDAO->cadastrar($conexao->getLink(), $resposta_teste);
+    if($retornos[0] == null) {
+        header("Location:../../Views/Erros/ErroSQL.php?id_erro=".$retornos[1]."&erro=".$retornos[2]);
         die();
     }
 

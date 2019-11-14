@@ -17,17 +17,20 @@
 
     // Verifica quantidade de pesquisadores
     $pesquisadorDAO = new PesquisadorDAO();
-    $qnt = $pesquisadorDAO->quantidadePesquisadores($conexao->getLink());
-    if(! $qnt) {
+    $retornos = $pesquisadorDAO->quantidadePesquisadores($conexao->getLink());
+    if($retornos[0] == null) {
         $qnt = 0;
+    }
+    else {
+        $qnt = $retornos[0];
     }
     $id = $qnt + 1;
 
     // Cria o pesquisador
     $pesquisador = new Pesquisador($id, $nome, $senha, True);
-    $result = $pesquisadorDAO->cadastrar($conexao->getLink(), $pesquisador);
-    if(! $result) {
-        header("Location:../../Views/Erros/ErroNomeEmUso.php");
+    $retornos = $pesquisadorDAO->cadastrar($conexao->getLink(), $pesquisador);
+    if($retornos[0] == null) {
+        header("Location:../../Views/Erros/ErroSQL.php?id_erro=".$retornos[1]."&erro=".$retornos[2]);
         die();
     }
 

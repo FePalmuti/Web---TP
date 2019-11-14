@@ -17,10 +17,13 @@
 
     // Executa os comandos SQL
     $testeDAO = new TesteDAO();
-    $teste = $testeDAO->buscarPorCA($conexao->getLink(), $codigo_digitado);
-    if(! $teste) {
-        header("Location:../../Views/Erros/ErroEntrada.php");
+    $retornos = $testeDAO->buscarPorCA($conexao->getLink(), $codigo_digitado);
+    if($retornos[0] == null) {
+        header("Location:../../Views/Erros/ErroSQL.php?id_erro=".$retornos[1]."&erro=".$retornos[2]);
         die();
+    }
+    else {
+        $teste = $retornos[0];
     }
 
     // Inicia sessao

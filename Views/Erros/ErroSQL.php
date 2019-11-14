@@ -5,6 +5,21 @@
         <title></title>
     </head>
     <body>
-        Erro em operacao SQL!
+        <?php
+            $id_erro =  $_GET["id_erro"];
+            $erro =  $_GET["erro"];
+
+            if($id_erro == "") {
+                echo "Dados digitados incorretamente!";
+            }
+            elseif($id_erro == "1062") {
+                echo "Usuario ja cadastrado!";
+            }
+            else {
+                echo $id_erro;
+                echo "<br>";
+                echo $erro;
+            }
+        ?>
     </body>
 </html>

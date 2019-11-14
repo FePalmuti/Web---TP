@@ -17,10 +17,13 @@
 
     // Executa os comandos SQL
     $pesquisadorDAO = new PesquisadorDAO();
-    $pesquisador = $pesquisadorDAO->buscar($conexao->getLink(), $nome, $senha);
-    if(! $pesquisador) {
-        header("Location:../../Views/Erros/ErroEntrada.php");
+    $retornos = $pesquisadorDAO->buscar($conexao->getLink(), $nome, $senha);
+    if($retornos[0] == null) {
+        header("Location:../../Views/Erros/ErroSQL.php?id_erro=".$retornos[1]."&erro=".$retornos[2]);
         die();
+    }
+    else {
+        $pesquisador = $retornos[0];
     }
 
     // Inicia sessao

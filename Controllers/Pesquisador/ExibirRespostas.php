@@ -21,9 +21,12 @@
 
     // Busca as resposta do teste
     $respostaTesteDAO = new RespostaTesteDAO();
-    $lista_respostas = $respostaTesteDAO->buscar($conexao->getLink(), $teste->getId());
-    if(! $lista_respostas) {
+    $retornos = $respostaTesteDAO->buscar($conexao->getLink(), $teste->getId());
+    if($retornos[0] == null) {
         $lista_respostas = array();
+    }
+    else {
+        $lista_respostas = $retornos[0];
     }
 
     // Redireciona para a view

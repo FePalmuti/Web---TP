@@ -20,9 +20,12 @@
 
     // Verifica quantidade de testes
     $testeDAO = new TesteDAO();
-    $qnt = $testeDAO->quantidadeTestes($conexao->getLink());
-    if(! $qnt) {
+    $retornos = $testeDAO->quantidadeTestes($conexao->getLink());
+    if($retornos[0] == null) {
         $qnt = 0;
+    }
+    else {
+        $qnt = $retornos[0];
     }
     $id = (int) $qnt + 1;
     $codigo_acesso = Utilidades::gerarCodigoDeAcesso($id);
@@ -31,9 +34,12 @@
 
     // Obtem todas as imagens
     $imagemDAO = new ImagemDAO();
-    $todas_imagens = $imagemDAO->buscarTodas($conexao->getLink());
-    if(! $todas_imagens) {
+    $retornos = $imagemDAO->buscarTodas($conexao->getLink());
+    if($retornos[0] == null) {
         $todas_imagens = array();
+    }
+    else {
+        $todas_imagens = $retornos[0];
     }
 
     // Guarda na sessao

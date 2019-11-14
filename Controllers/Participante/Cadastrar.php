@@ -21,9 +21,12 @@
 
     // Verifica quantidade de respostas de testes
     $respostaTesteDAO = new RespostaTesteDAO();
-    $qnt = $respostaTesteDAO->quantidadeRespostasTestes($conexao->getLink());
-    if(! $qnt) {
+    $retornos = $respostaTesteDAO->quantidadeRespostasTestes($conexao->getLink());
+    if($retornos[0] == null) {
         $qnt = 0;
+    }
+    else {
+        $qnt = $retornos[0];
     }
     $id_resposta_teste = $qnt + 1;
 
