@@ -17,7 +17,7 @@
 
     // Gravacao do teste
     $testeDAO = new TesteDAO();
-    $result = $testeDAO->cadastrar($conexao->getLink(), $teste);
+    $result = $testeDAO->cadastrar($conexao->getLink(), $teste) or die(mysqli_error($conexao->getLink()));
     if(! $result) {
         header("Location:../../Views/Erros/ErroSQL.php");
         die();

@@ -4,7 +4,7 @@
     class PesquisadorDAO {
         public function cadastrar($linkConexao, $pesquisador) {
             $consulta = "INSERT INTO Pesquisador VALUES (\"".$pesquisador->getId()."\", \"".$pesquisador->getNome()."\", \"".$pesquisador->getSenha()."\", \"".$pesquisador->getAdm()."\");";
-            $result = mysqli_query($linkConexao, $consulta);
+            $result = mysqli_query($linkConexao, $consulta) or die(mysqli_error($linkConexao));
             if(! $result) {
                 return False;
             }
