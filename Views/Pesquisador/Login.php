@@ -9,9 +9,9 @@
 
 </head>
     <body>
-    <div class="section-cadastro">
+    <div class="section-login">
         <div class="container-cadastro">
-            <div class="row wrap-login100 margin-top">
+            <div class="row wrap-border">
                 <div class="col-8 col-sm-6 login100-pic js-tilt" data-tilt>
                     <img src="../Styles/img-01.png" alt="IMG">
                 </div>
@@ -33,7 +33,7 @@
                         </div>
                         <div class="row margin-top">
                             <div class="col-12">
-                            <button type="submit" class="btn btn-success">Entrar</button>
+                            <button type="submit" class="button-form-btn">Entrar</button>
                             </div>
                     </form>
                 </div>

@@ -13,12 +13,12 @@
     <div class='section-teste'>
         <div class='container-teste'>
             <div class='row'>
-                <div class='col-12 wrap-login100'>
+                <div class='col-12 wrap-border'>
                     <table class='table table-hover table-dark'>
                         <thead>
                             <div class="button-new">
                                 <form action="NovoTeste.php">
-                                    <button type="submit" class="btn btn-success">
+                                    <button type="submit" class="button-item-btn">
                                         <span class="glyphicon glyphicon-plus"></span> novo item
                                     </button>
                                 </form>

@@ -13,10 +13,10 @@
     <form action="../../Controllers/Pesquisador/GuardarTesteSessao.php" , method="post">
         <div class="section-cadastro">
             <div class="container-cadastro">
-                <div class="row wrap-login100">
+                <div class="row wrap-border">
                     <div class="col-4 col-sm-6">
                         <div>
-                            <h1> Cadastrar</h1>
+                            <h1> Cadastrar novo teste</h1>
                         </div>
                         <div class="row">
                             <div class="col-12">
@@ -37,6 +37,7 @@
                     </div>
                 </div>
             </div>
+        </div>
     </form>
 </body>
 
