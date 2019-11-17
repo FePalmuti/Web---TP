@@ -270,6 +270,74 @@ html, body {
     width: 100%;
     margin-bottom: 50px;
     float: right;
-    color: #57b846 !important;
+ 
   }
   
+  .area-button{
+    text-align: right;
+    width: 100%;
+    margin-bottom: 50px;
+    float: right;
+  }
+  .margin-topfonte{
+     margin-bottom: 50px;
+  }
+
+  .scroll{
+    width: 600px;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    float: right;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 100px 100px 33px 50px
+
+  }
+
+  .container-image {
+    position: relative;
+    width: 30%;
+  }
+  
+  .image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+  
+  .selected {
+    opacity: 1;
+    cursor: grab;
+  }
+
+  img {
+    margin: 0 0 0 0 !important;
+  }
+
+  .margin-5 {
+    margin: 5px 5px 5px 5px !important;
+  }
+ .section-container{
+   padding-top: 100px;
+ }
+  .container-inputs {
+    display: flex;
+    margin-top: 20px;
+
+  }

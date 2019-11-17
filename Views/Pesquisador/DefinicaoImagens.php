@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8">
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../Styles/home.css">
+    <!-- Última versão CSS compilada e minificada -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <title></title>
         <style>
             .scroll {
@@ -23,6 +27,16 @@
 
             function marcarImagemSelecionada(caminho_imagem) {
                 imagem_selecionada = caminho_imagem;
+
+                document.querySelectorAll('.container-image').forEach(
+                    (element) => {
+                        element.children[1].classList.remove('selected');
+                    }
+                );
+
+                console.log(document.getElementsByName(caminho_imagem));
+
+                document.getElementsByName(caminho_imagem)[0].children[1].classList.add('selected');
             }
 
             function encaminharImagem(nome_botao) {
@@ -44,23 +58,33 @@
                 $qnt_imagens = $_SESSION["qnt_imagens"];
                 $todas_imagens = $_SESSION["todas_imagens"];
 
-                echo "<div>";
+                echo "<div class = 'section-container'>";
                     for($i=1; $i<=$qnt_imagens; $i++) {
+                        echo "<div>";
+                        echo "<div class = 'row'>";
+                        echo "<div class = 'col-12 container-inputs'>";
                         echo "<input type='button' id='bt_".$i."' value='Adicionar a imagem selecionada' onclick='encaminharImagem(this.id);'>";
                         echo " ";
                         echo "<label id='lb_img_".$i."'>Nenhuma</label>";
-                        echo "<input type='hidden' id='dir_img_".$i."' name='dir_img_".$i."'>";
+                      
 
+                        echo "<input type='hidden' id='dir_img_".$i."' name='dir_img_".$i."'>";
+                        
                         echo "<input class='margem_esq' type='file' name='arq_img_".$i."'>";
                         echo "<br>";
+                    
+                        echo "</div>";
+                        echo "</div>";
+                        echo "</div>";
                     }
                 echo "</div>";
                 echo "<br>";
-                echo "<div class='scroll'>";
+                echo "<div class='scroll' id='images-selector'>";
                     $cont = 0;
                     foreach($todas_imagens as $imagem) {
                         $arquivo = $imagem->getArquivo();
-                        echo "<img src='".$arquivo."' name='".$arquivo."' onclick='marcarImagemSelecionada(this.name);'>";
+                        // echo "<div class='img-container'><div class='img-hover'></div></div>";
+                        echo '<div class="container-image margin-5" name="'.$arquivo.'" onclick="marcarImagemSelecionada(\''.$arquivo.'\');"><img class = "img-hover" src="'.$arquivo.'"><div class="overlay"></div></div>';
                         $cont++;
                         // 3 imagens por linha
                         if($cont == 3) {
