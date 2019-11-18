@@ -31,15 +31,13 @@
             var img_selecionada = null;
 
             function marcarImagemSelecionada(caminho_imagem) {
-                imagem_selecionada = caminho_imagem;
-
+                this.label_img_selecionada = caminho_imagem;
+                
                 document.querySelectorAll('.container-image').forEach(
                     (element) => {
                         element.children[1].classList.remove('selected');
                     }
                 );
-
-                console.log(document.getElementsByName(caminho_imagem));
 
                 document.getElementsByName(caminho_imagem)[0].children[1].classList.add('selected');
             }
