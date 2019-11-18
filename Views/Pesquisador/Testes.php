@@ -31,6 +31,7 @@
                                 <th scope='col'>Ação</th>
                             </tr>
                         </thead>
+                        <tbody>
                         <?php
                         require_once "../../Models/Teste.php";
 
@@ -41,7 +42,7 @@
                         $cont = 0;
                         foreach ($lista_testes as $teste) {
                             echo "<form action='TesteDetalhado.php', method='post'>";
-                            echo "<tbody>";
+                      
                             echo "<tr>";
                             echo "<th scope = 'row'>", $teste->getId(), "</th>";
                             echo "<td>", $teste->getCodigoAcesso(), "</td>";
@@ -51,10 +52,11 @@
                             echo "</tr>";
                             echo "<input type='hidden' name='pos_teste' value='" . $cont . "'>";
                             echo "</form>";
-                            echo "</tbody>";
+                         
                             $cont++;
                         }
                         ?>
+                        </tbody>
                     </table>
                     <br>
                 </div>

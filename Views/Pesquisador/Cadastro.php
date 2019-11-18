@@ -35,7 +35,7 @@
                         </div>
                         <div class="row margin-top">
                             <div class="col-12">
-                            <button type="submit" class="btn btn-success">Cadastrar</button>
+                            <button type="submit" class="button-form-btn">Cadastrar</button>
                             </div>
                     </form>
                 </div>

@@ -69,7 +69,7 @@
                             </div>
                             <div class="row margin-top">
                                 <div class="col-12">
-                                    <form action="../../Controllers/Pesquisador/FinalizarTeste.php">
+                                    <form action="../Controllers/Pesquisador/FinalizarTeste.php">
                                     <div class = "area-button">
                                         <button type="submit" class="btn btn-success">Finalizar Teste</button>
     </div>

@@ -9,7 +9,7 @@
 <body>
     <script>
         function myFunction() {
-            alert("Erro em operação SQL");
+            alert("Pesquesia não encontrada!!!");
         }
     </script>
     <script>
@@ -17,7 +17,6 @@
     </script>
 
     <body onload='window.history.back();'>
-
     </body>
 
 </html>

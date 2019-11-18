@@ -28,22 +28,24 @@
     <div class="container">
       <div class="content">
         <div class="title-area">
-          <h1 class="title-modern">Testes de diversos temas</h1>
-          <div class="col-lg-12 align-center">
-            <div class="col-lg-8">
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="Entre com a informação aqui...">
-                <span class="input-group-btn">
-                  <button href=""target="_blank" class="btn btn-search btn-fill btn-sm">
-                    Pesquisar
-                  </button>
-                </span>
-              </div>
-            </div>
-          </div>
+          <h1 class="title-modern">Encontre seu teste</h1>
+          <form action="../Controllers/Participante/VerificarCodigoAcesso.php" method="post">
+            <div class="col-lg-12 align-center">
+              <div class="col-lg-12">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Entre com a informação aqui...">
+                  <span class="input-group-btn">
+                    <button href="" target="_blank" class="btn btn-search btn-fill btn-sm">
+                      Pesquisar
+                    </button>
+                  </span>
+          </form>
         </div>
       </div>
     </div>
+  </div>
+  </div>
+  </div>
 </body>
 
 </html>

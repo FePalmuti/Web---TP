@@ -16,7 +16,7 @@
     $testeDAO = new TesteDAO();
     $teste = $testeDAO->buscarPorCA($conexao->getLink(), $codigo_digitado);
     if(! $teste) {
-        header("Location:../../Views/Erros/ErroEntrada.php");
+        header("Location:../../Views/Erros/ErroPesquisa.php");
         die();
     }
 
