@@ -5,7 +5,7 @@
 
     class PerguntaDAO {
         public function cadastrar($linkConexao, $pergunta) {
-            $consulta = "INSERT INTO Pergunta VALUES (\"".$pergunta->getNumero()."\", \"".$pergunta->getInstrucoes()."\", \"".$pergunta->getDescricao()."\", \"".$pergunta->semDescricao()."\", \"".$pergunta->getTipo()."\", \"".$pergunta->getIdTeste()."\");";
+            $consulta = "INSERT INTO Pergunta VALUES (\"".$pergunta->getNumero()."\", \"".$pergunta->getInstrucoes()."\", \"".$pergunta->getDescricao()."\", \"".$pergunta->getTipo()."\", \"".$pergunta->getIdTeste()."\");";
             $result = mysqli_query($linkConexao, $consulta);
             if(! $result) {
                 return False;
@@ -40,7 +40,7 @@
                     $lista_alternativas = array();
                 }
                 //--------------------
-                $pergunta = new Pergunta($pergunta->numero, $pergunta->instrucoes, $pergunta->descricao, $pergunta->sem_descricao, $pergunta->tipo, $pergunta->id_teste, $lista_alternativas);
+                $pergunta = new Pergunta($pergunta->numero, $pergunta->instrucoes, $pergunta->descricao, $pergunta->tipo, $pergunta->id_teste, $lista_alternativas);
                 array_push($lista_perguntas, $pergunta);
             }
             return $lista_perguntas;

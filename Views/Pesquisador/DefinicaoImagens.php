@@ -7,6 +7,7 @@
     <!-- Última versão CSS compilada e minificada -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <title></title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <style>
             .scroll {
                 overflow-x: hidden;
@@ -21,9 +22,13 @@
             .margem_esq {
                 margin-left: 40px;
             }
+            .selecionada {
+                border:solid 1px red;
+            }
         </style>
         <script type="text/javascript">
-            var imagem_selecionada = "Nenhuma";
+            var label_img_selecionada = "Nenhuma";
+            var img_selecionada = null;
 
             function marcarImagemSelecionada(caminho_imagem) {
                 imagem_selecionada = caminho_imagem;
@@ -42,9 +47,9 @@
             function encaminharImagem(nome_botao) {
                 // Ignora o "bt_"
                 numero = nome_botao.substring(3);
-                if(imagem_selecionada != "Nenhuma") {
-                    document.getElementById("lb_img_" + numero).innerHTML = imagem_selecionada;
-                    document.getElementById("dir_img_" + numero).value = imagem_selecionada;
+                if(label_img_selecionada != "Nenhuma") {
+                    document.getElementById("lb_img_" + numero).innerHTML = label_img_selecionada;
+                    document.getElementById("dir_img_" + numero).value = label_img_selecionada;
                 }
             }
         </script>
@@ -87,7 +92,7 @@
                         echo '<div class="container-image margin-5" name="'.$arquivo.'" onclick="marcarImagemSelecionada(\''.$arquivo.'\');"><img class = "img-hover" src="'.$arquivo.'"><div class="overlay"></div></div>';
                         $cont++;
                         // 3 imagens por linha
-                        if($cont == 3) {
+                        if($cont % 3 == 0) {
                             echo "<br>";
                         }
                     }

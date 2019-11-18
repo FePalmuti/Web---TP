@@ -7,7 +7,11 @@
     $senha = $_POST["senha"];
     
     // Criptografa senha
+<<<<<<< HEAD
     // $senha = md5($senha);
+=======
+//    $senha = md5($senha);
+>>>>>>> master
 
     // Estabelece conexao com o BD
     $conexao = new Conexao();

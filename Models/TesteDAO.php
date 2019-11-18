@@ -46,6 +46,26 @@
             return $lista_testes;
         }
 
+        public function buscarPorCA($linkConexao, $codigo_acesso) {
+            $consulta = "SELECT * FROM Teste WHERE codigo_acesso=\"".$codigo_acesso."\";";
+            $result = mysqli_query($linkConexao, $consulta);
+            if(! $result) {
+                return False;
+            }
+            while($teste = mysqli_fetch_object($result)) {
+                // Busca as perguntas do teste
+                //--------------------
+                $perguntaDAO = new PerguntaDAO();
+                $lista_perguntas = $perguntaDAO->buscar($linkConexao, $teste->id);
+                if(! $lista_perguntas) {
+                    $lista_perguntas = array();
+                }
+                //--------------------
+                $teste = new Teste($teste->id, $teste->codigo_acesso, $teste->nome, $teste->descricao, $teste->id_pesquisador, $lista_perguntas);
+                return $teste;
+            }
+        }
+
         public function quantidadeTestes($linkConexao) {
             $consulta = "SELECT COUNT(id) AS qnt FROM Teste;";
             $result = mysqli_query($linkConexao, $consulta);

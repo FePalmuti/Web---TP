@@ -6,7 +6,7 @@
     $nome = $_POST["nome"];
     $senha = $_POST["senha"];
     // Criptografa senha
-    // $senha = md5($senha);
+//    $senha = md5($senha);
 
     // Estabelece conexao com o BD
     $conexao = new Conexao();
