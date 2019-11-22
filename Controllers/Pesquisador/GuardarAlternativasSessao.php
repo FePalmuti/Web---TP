@@ -25,16 +25,16 @@
             $diretorio_imagem = $_POST["dir_img_".$grau];
         }
         else if(isset($_FILES["arq_img_".$grau])) {
-            // Verifica quantidade de imagens
-            $retornos = $imagemDAO->quantidadeImagens($conexao->getLink());
+            // Verifica proximo id
+            $retornos = $imagemDAO->proximoId($conexao->getLink());
             if($retornos[0] == null) {
-                $qnt = 0;
+                header("Location:../../Views/Erros/ErroSQL.php?id_erro=".$retornos[1]."&erro=".$retornos[2]);
+                die();
             }
             else {
-                $qnt = $retornos[0];
+                $id_imagem = $retornos[0];
             }
-            $id_imagem = $qnt + 1;
-            //
+
             $arq_imagem = $_FILES["arq_img_".$grau];
             $extensao = strtolower(substr($arq_imagem["name"], -4));
             $diretorio_imagem = "../../Img/".$id_imagem.$extensao;

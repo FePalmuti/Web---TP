@@ -15,16 +15,16 @@
         die();
     }
 
-    // Verifica quantidade de pesquisadores
+    // Verifica proximo id
     $pesquisadorDAO = new PesquisadorDAO();
-    $retornos = $pesquisadorDAO->quantidadePesquisadores($conexao->getLink());
+    $retornos = $pesquisadorDAO->proximoId($conexao->getLink());
     if($retornos[0] == null) {
-        $qnt = 0;
+        header("Location:../../Views/Erros/ErroSQL.php?id_erro=".$retornos[1]."&erro=".$retornos[2]);
+        die();
     }
     else {
-        $qnt = $retornos[0];
+        $id = $retornos[0];
     }
-    $id = $qnt + 1;
 
     // Cria o pesquisador
     $pesquisador = new Pesquisador($id, $nome, $senha, True);

@@ -3,7 +3,7 @@ CREATE DATABASE Dados;
 USE Dados;
 
 CREATE TABLE Pesquisador (
-	id int NOT NULL,
+	id int NOT NULL AUTO_INCREMENT,
 	nome varchar(30),
 	# A funcao MD5 gera uma string de 32 caracteres
 	senha varchar(40),
@@ -13,7 +13,7 @@ CREATE TABLE Pesquisador (
 );
 
 CREATE TABLE Teste (
-	id int NOT NULL,
+	id int NOT NULL AUTO_INCREMENT,
 	codigo_acesso varchar(30),
 	nome varchar(30),
 	descricao varchar(100),
@@ -42,7 +42,7 @@ CREATE TABLE Pergunta (
 );
 
 CREATE TABLE Imagem (
-	id int NOT NULL,
+	id int NOT NULL AUTO_INCREMENT,
 	arquivo varchar(30),
 	PRIMARY KEY (id),
 	UNIQUE (arquivo)
@@ -131,6 +131,6 @@ CREATE TABLE DadosDemograficos (
 	PRIMARY KEY (id_resposta_teste)
 );
 
-
+insert into Pesquisador (id, nome, senha, adm) values (1, "root", "d41d8cd98f00b204e9800998ecf8427e", true);
 
 #

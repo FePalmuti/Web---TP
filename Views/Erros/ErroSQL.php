@@ -13,7 +13,7 @@
                 echo "Dados digitados incorretamente!";
             }
             elseif($id_erro == "1062") {
-                echo "Usuario ja cadastrado!";
+                echo "Elemento ja cadastrado!";
             }
             else {
                 echo $id_erro;

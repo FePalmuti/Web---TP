@@ -18,16 +18,17 @@
         die();
     }
 
-    // Verifica quantidade de testes
+    // Verifica proximo id
     $testeDAO = new TesteDAO();
-    $retornos = $testeDAO->quantidadeTestes($conexao->getLink());
+    $retornos = $testeDAO->proximoId($conexao->getLink());
     if($retornos[0] == null) {
-        $qnt = 0;
+        header("Location:../../Views/Erros/ErroSQL.php?id_erro=".$retornos[1]."&erro=".$retornos[2]);
+        die();
     }
     else {
-        $qnt = $retornos[0];
+        $id = $retornos[0];
     }
-    $id = (int) $qnt + 1;
+
     $codigo_acesso = Utilidades::gerarCodigoDeAcesso($id);
     // Cria um teste, ainda sem perguntas
     $teste = new Teste($id, $codigo_acesso, $nome, $descricao, $id_pesquisador, array());

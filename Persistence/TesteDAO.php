@@ -68,15 +68,14 @@
             }
         }
 
-        public function quantidadeTestes($linkConexao) {
-            $consulta = "SELECT COUNT(id) AS qnt FROM Teste;";
+        public function proximoId($linkConexao) {
+            $consulta = "SELECT AUTO_INCREMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA = 'Dados' AND TABLE_NAME = 'Teste';";
             $result = mysqli_query($linkConexao, $consulta);
             if(! $result) {
                 return array(null, mysqli_errno($linkConexao), mysqli_error($linkConexao));
             }
-            while($linha = mysqli_fetch_object($result)) {
-                return array($linha->qnt, "", "");
-            }
+            $linha = mysqli_fetch_array($result, MYSQLI_ASSOC);
+            return array($linha["AUTO_INCREMENT"], "", "");
         }
     }
 ?>
