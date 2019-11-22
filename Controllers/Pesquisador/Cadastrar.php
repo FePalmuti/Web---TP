@@ -5,6 +5,7 @@
 
     $nome = $_POST["nome"];
     $senha = $_POST["senha"];
+    $adm = $_POST["adm"];
     // Criptografa senha
     $senha = md5($senha);
 
@@ -27,15 +28,12 @@
     }
 
     // Cria o pesquisador
-    $pesquisador = new Pesquisador($id, $nome, $senha, True);
+    $pesquisador = new Pesquisador($id, $nome, $senha, $adm);
     $retornos = $pesquisadorDAO->cadastrar($conexao->getLink(), $pesquisador);
     if($retornos[0] == null) {
         header("Location:../../Views/Erros/ErroSQL.php?id_erro=".$retornos[1]."&erro=".$retornos[2]);
         die();
     }
 
-    // Inicia sessao
-    session_start();
-    $_SESSION["id_pesquisador"] = $pesquisador->getId();
-    header("Location:ExibirTestes.php");
+    header("Location:../../Views/Pesquisador/PesquisadorCadastrado.php");
 ?>

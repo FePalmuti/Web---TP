@@ -24,7 +24,7 @@
             return $this->senha;
         }
 
-        public function getAdm() {
+        public function isAdm() {
             return $this->adm;
         }
     }

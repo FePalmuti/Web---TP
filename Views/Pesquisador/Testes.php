@@ -13,8 +13,10 @@
     <body>
         <?php
             require_once "../../Models/Teste.php";
+            require_once "../../Models/Pesquisador.php";
 
             session_start();
+            $pesquisador = $_SESSION["pesquisador"];
             $lista_testes = $_SESSION["lista_testes"];
 
             echo "<table>";
@@ -46,7 +48,14 @@
             echo "<br>";
         ?>
         <form action="NovoTeste.php">
-            <input type="submit" value="Novo">
+            <input type="submit" value="Cadastrar Novo Teste">
         </form>
+        <?php
+            if($pesquisador->isAdm()) {
+                echo "<form action='Cadastro.php'>";
+                    echo "<input type='submit' value='Cadastrar Novo Pesquisador'>";
+                echo "</form>";
+            }
+        ?>
     </body>
 </html>

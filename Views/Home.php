@@ -5,9 +5,6 @@
         <title></title>
     </head>
     <body>
-        <form action="Pesquisador/Cadastro.php">
-            <input type="submit" value="Cadastrar">
-        </form>
         <form action="Pesquisador/Login.php">
             <input type="submit" value="Login">
         </form>

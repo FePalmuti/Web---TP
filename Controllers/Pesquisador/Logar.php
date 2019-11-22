@@ -28,6 +28,6 @@
 
     // Inicia sessao
     session_start();
-    $_SESSION["id_pesquisador"] = $pesquisador->getId();
+    $_SESSION["pesquisador"] = $pesquisador;
     header("Location:ExibirTestes.php");
 ?>

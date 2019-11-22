@@ -1,4 +1,5 @@
 <?php
+    require_once "../../Models/Pesquisador.php";
     require_once "../../Models/Conexao.php";
     require_once "../../Models/Teste.php";
     require_once "../../Models/Pergunta.php";
@@ -10,7 +11,7 @@
     require_once "../../Persistence/ImagemDAO.php";
 
     session_start();
-    $id_pesquisador = $_SESSION["id_pesquisador"];
+    $id_pesquisador = $_SESSION["pesquisador"]->getId();
 
     // Estabelece conexao com o BD
     $conexao = new Conexao();
