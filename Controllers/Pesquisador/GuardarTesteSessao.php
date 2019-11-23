@@ -1,4 +1,5 @@
 <?php
+    require_once "../../Models/Pesquisador.php";
     require_once "../../Models/Conexao.php";
     require_once "../../Models/Teste.php";
     require_once "../../Models/Imagem.php";
@@ -9,7 +10,7 @@
     session_start();
     $nome = $_POST["nome"];
     $descricao = $_POST["descricao"];
-    $id_pesquisador = $_SESSION["id_pesquisador"];
+    $id_pesquisador = $_SESSION["pesquisador"]->getId();
 
     // Estabelece conexao com o BD
     $conexao = new Conexao();
