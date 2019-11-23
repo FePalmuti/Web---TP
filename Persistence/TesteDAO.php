@@ -68,6 +68,15 @@
             }
         }
 
+        public function excluir($linkConexao, $id_teste) {
+            $consulta = "DELETE FROM Teste WHERE id=\"".$id_teste."\";";
+            $result = mysqli_query($linkConexao, $consulta);
+            if(! $result) {
+                return array(null, mysqli_errno($linkConexao), mysqli_error($linkConexao));
+            }
+            return array(True, "", "");
+        }
+
         public function proximoId($linkConexao) {
             $consulta = "SELECT AUTO_INCREMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA = 'Dados' AND TABLE_NAME = 'Teste';";
             $result = mysqli_query($linkConexao, $consulta);

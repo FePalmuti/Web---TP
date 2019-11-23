@@ -33,12 +33,19 @@
                         echo "<td>", $teste->getCodigoAcesso(), "</td>";
                         echo "<td>", $teste->getNome(), "</td>";
                         echo "<td>", $teste->getDescricao(), "</td>";
+                        // Detalhes
                         echo "<form action='TesteDetalhado.php', method='post'>";
                             echo "<td>", "<input type='submit' value='Detalhes'>", "</td>";
                             echo "<input type='hidden' name='pos_teste' value='".$cont."'>";
                         echo "</form>";
+                        // Respostas
                         echo "<form action='../../Controllers/Pesquisador/ExibirRespostas.php', method='post'>";
                             echo "<td>", "<input type='submit' value='Repostas'>", "</td>";
+                            echo "<input type='hidden' name='pos_teste' value='".$cont."'>";
+                        echo "</form>";
+                        // Excluir
+                        echo "<form action='../../Controllers/Pesquisador/ExcluirTeste.php', method='post'>";
+                            echo "<td>", "<input type='submit' value='x'>", "</td>";
                             echo "<input type='hidden' name='pos_teste' value='".$cont."'>";
                         echo "</form>";
                     echo "</tr>";
