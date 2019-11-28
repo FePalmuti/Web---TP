@@ -11,7 +11,7 @@
             Senha: <input type="text" name="senha"><br>
             Administrador?<br>
             <input type="radio" name="adm" value="sim">Sim
-            <input type="radio" name="adm" value="sim">Não
+            <input type="radio" name="adm" value="nao">Não
             <br>
             <input type="submit" value="Ok">
         </form>

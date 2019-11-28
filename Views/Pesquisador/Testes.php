@@ -59,8 +59,12 @@
         </form>
         <?php
             if($pesquisador->isAdm()) {
+                echo "<br>";
                 echo "<form action='Cadastro.php'>";
                     echo "<input type='submit' value='Cadastrar Novo Pesquisador'>";
+                echo "</form>";
+                echo "<form action='../../Controllers/Pesquisador/ExibirPesquisadores.php'>";
+                    echo "<input type='submit' value='Lista de Pesquisadores'>";
                 echo "</form>";
             }
         ?>

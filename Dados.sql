@@ -134,6 +134,3 @@ CREATE TABLE DadosDemograficos (
 insert into Pesquisador (id, nome, senha, adm) values (1, "root", "d41d8cd98f00b204e9800998ecf8427e", true);
 
 #
-
-select * from respostateste;
-select * from respostapergunta;

@@ -6,6 +6,12 @@
     $nome = $_POST["nome"];
     $senha = $_POST["senha"];
     $adm = $_POST["adm"];
+    if($adm == "sim") {
+        $adm = True;
+    }
+    else {
+        $adm = False;
+    }
     // Criptografa senha
     $senha = md5($senha);
 

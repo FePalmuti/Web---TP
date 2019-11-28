@@ -21,6 +21,29 @@
             }
         }
 
+        public function buscarTodos($linkConexao) {
+            $consulta = "SELECT * FROM Pesquisador;";
+            $result = mysqli_query($linkConexao, $consulta);
+            if(! $result) {
+                return array(null, mysqli_errno($linkConexao), mysqli_error($linkConexao));
+            }
+            $lista_pesquisadores = array();
+            while($linha = mysqli_fetch_object($result)) {
+                $pesquisador = new Pesquisador($linha->id, $linha->nome, $linha->senha, $linha->adm);
+                array_push($lista_pesquisadores, $pesquisador);
+            }
+            return array($lista_pesquisadores, "", "");
+        }
+
+        public function excluir($linkConexao, $id_pesquisador) {
+            $consulta = "DELETE FROM Pesquisador WHERE id=\"".$id_pesquisador."\";";
+            $result = mysqli_query($linkConexao, $consulta);
+            if(! $result) {
+                return array(null, mysqli_errno($linkConexao), mysqli_error($linkConexao));
+            }
+            return array(True, "", "");
+        }
+
         public function proximoId($linkConexao) {
             $consulta = "SELECT AUTO_INCREMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA = 'Dados' AND TABLE_NAME = 'Pesquisador';";
             $result = mysqli_query($linkConexao, $consulta);
