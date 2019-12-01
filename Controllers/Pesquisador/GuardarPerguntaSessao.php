@@ -24,8 +24,8 @@
 
     // Cria a pergunta
     $pergunta = new Pergunta($numero, $instrucoes, $descricao, $tipo, $id_teste, array());
-    // Guarda a pergunta no teste
-    $_SESSION["teste"]->adicionarPergunta($pergunta);
+    // Guarda a pergunta como pendente
+    $_SESSION["pergunta_pendente"] = $pergunta;
 
     // Obtem todas as imagens
     $imagemDAO = new ImagemDAO();

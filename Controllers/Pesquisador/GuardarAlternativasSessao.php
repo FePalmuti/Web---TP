@@ -14,6 +14,7 @@
 
     session_start();
     $qnt_imagens = $_SESSION["qnt_imagens"];
+    $_SESSION["teste"]->adicionarPergunta($_SESSION["pergunta_pendente"]);
     $teste = $_SESSION["teste"];
     $num_pergunta = count($teste->getListaPerguntas());
 
