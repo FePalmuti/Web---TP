@@ -1,4 +1,23 @@
 <?php
+    function download() {
+        $fileName = basename('Respostas.csv');
+        $filePath = '../../'.$fileName;
+        if(!empty($fileName) && file_exists($filePath)){
+            // Define headers
+            header("Cache-Control: public");
+            header("Content-Description: File Transfer");
+            header("Content-Disposition: attachment; filename=$fileName");
+            header("Content-Type: application/zip");
+            header("Content-Transfer-Encoding: binary");
+
+            // Read the file
+            readfile($filePath);
+            exit;
+        }else{
+            echo "Erro!";
+        }
+    }
+
     require_once "../../Models/RespostaTeste.php";
     require_once "../../Models/DadosDemograficos.php";
     require_once "../../Models/RespostaPergunta.php";
@@ -32,5 +51,5 @@
     }
     fclose($arquivo);
 
-    header("Location:../../Views/Pesquisador/RelatorioGeradoComSucesso.php");
+    download();
 ?>
