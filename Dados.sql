@@ -120,7 +120,7 @@ CREATE TABLE DadosDemograficos (
 	telefone varchar(30),
 	idade int,
 	sexo enum('masculino', 'feminino'),
-	cep varchar(10),
+	cep varchar(11),
 	etnia enum('branco', 'pardo', 'negro', 'amarelo', 'indigena'),
 	id_resposta_teste int,
 	CONSTRAINT fk_DadosDemograficos_RespostaTeste
