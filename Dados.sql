@@ -1,4 +1,4 @@
-DROP DATABASE Dados;
+
 CREATE DATABASE Dados;
 USE Dados;
 
