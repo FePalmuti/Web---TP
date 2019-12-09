@@ -7,7 +7,7 @@
 		var $link;
 
 		public function Conexao() {
-			$this->servidor = "localhost";
+			$this->servidor = "192.168.108.56";
 			$this->usuario = "root";
 			$this->senha = "";
 			$this->bd = "Dados";
