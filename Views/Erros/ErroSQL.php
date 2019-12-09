@@ -10,10 +10,14 @@
             $erro =  $_GET["erro"];
 
             if($id_erro == "") {
-                echo "Dados digitados incorretamente!";
+                //echo "Dados digitados incorretamente!";
+               echo "<script>alert('Dados digitados incorretamente!');  onload = history.back(); </script>";
+        
+           
             }
             elseif($id_erro == "1062") {
-                echo "Elemento ja cadastrado!";
+                //echo "Elemento ja cadastrado!";
+                echo "<script>alert('Elemento ja cadastrado!');  onload = history.back(); </script>";
             }
             else {
                 echo $id_erro;

@@ -5,6 +5,7 @@
         <title></title>
     </head>
     <body>
-        Erro ao tentar conectar com o banco de dados!
+        <!--Erro ao tentar conectar com o banco de dados!"-->
+        <script> alert('Erro ao tentar conectar com o banco de dados!');  onload = history.back(); </script>"
     </body>
 </html>
