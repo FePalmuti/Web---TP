@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8">
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../Styles/home.css">
+    <!-- Última versão CSS compilada e minificada -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <title></title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://d3js.org/d3.v5.js"></script>
         <style>
             .scroll {
                 overflow-x: hidden;
                 overflow-y: scroll;
-                width: 700px;
                 height: 400px;
             }
             img {
@@ -21,20 +23,23 @@
                 margin-left: 40px;
             }
             .selecionada {
-                border:solid 2px red;
+                border:solid 1px red;
             }
         </style>
         <script type="text/javascript">
             var label_img_selecionada = "Nenhuma";
             var img_selecionada = null;
-            var todas_imagens = [];
 
-            function marcarImagemSelecionada(id_img, caminho_imagem) {
-                label_img_selecionada = caminho_imagem;
-                if(img_selecionada != null) {
-                    img_selecionada.removeClass("selecionada");
-                }
-                img_selecionada = $("#"+id_img).addClass("selecionada");
+            function marcarImagemSelecionada(caminho_imagem) {
+                this.label_img_selecionada = caminho_imagem;
+                
+                document.querySelectorAll('.container-image').forEach(
+                    (element) => {
+                        element.children[1].classList.remove('selected');
+                    }
+                );
+
+                document.getElementsByName(caminho_imagem)[0].children[1].classList.add('selected');
             }
 
             function encaminharImagem(nome_botao) {
@@ -45,41 +50,6 @@
                     document.getElementById("dir_img_" + numero).value = label_img_selecionada;
                 }
             }
-
-            function atualizarGradeImagens() {
-                tag = document.getElementById("pesquisa").value;
-                var grade = d3.select("#grade");
-                // Limpa a grade
-                grade.html("");
-                if(tag == "") {
-                    todas_imagens.forEach(function(imagem, ind) {
-                        grade.append("img")
-                            .attr("src", imagem["arq"])
-                            .attr("id", "img_"+ind)
-                            .attr("name", imagem["arq"])
-                            .on("click", function() {
-                                marcarImagemSelecionada("img_"+ind, imagem["arq"]);
-                            });
-                    });
-                }
-                // Tag diferente de ""
-                else {
-                    var ind = 0;
-                    todas_imagens.forEach(function(imagem) {
-                        if(imagem["tag"] == tag) {
-                            grade.append("img")
-                                .attr("src", imagem["arq"])
-                                .attr("id", "img_"+ind)
-                                .attr("name", imagem["arq"])
-                                .on("click", function() {
-                                    marcarImagemSelecionada("img_"+ind, imagem["arq"]);
-                                });
-                            ind++;
-                        }
-                    });
-                }
-            }
-
         </script>
     </head>
     <body>
@@ -91,27 +61,39 @@
                 $qnt_imagens = $_SESSION["qnt_imagens"];
                 $todas_imagens = $_SESSION["todas_imagens"];
 
-                echo "<div>";
+                echo "<div class = 'section-container'>";
                     for($i=1; $i<=$qnt_imagens; $i++) {
+                        echo "<div>";
+                        echo "<div class = 'row'>";
+                        echo "<div class = 'col-12 container-inputs'>";
                         echo "<input type='button' id='bt_".$i."' value='Adicionar a imagem selecionada' onclick='encaminharImagem(this.id);'>";
                         echo " ";
                         echo "<label id='lb_img_".$i."'>Nenhuma</label>";
-                        echo "<input type='hidden' id='dir_img_".$i."' name='dir_img_".$i."'>";
+                      
 
+                        echo "<input type='hidden' id='dir_img_".$i."' name='dir_img_".$i."'>";
+                        
                         echo "<input class='margem_esq' type='file' name='arq_img_".$i."'>";
-                        echo "<input class='margem_esq' type='text' name='tag_img_".$i."' placeholder='Tag'>";
                         echo "<br>";
+                    
+                        echo "</div>";
+                        echo "</div>";
+                        echo "</div>";
                     }
                 echo "</div>";
                 echo "<br>";
-                echo "<input type='text' id='pesquisa' placeholder='Digite a tag...'></input>";
-                echo "<input type='button' onclick='atualizarGradeImagens();' value='Pesquisar'></input>";
-                echo "<br><br>";
-                echo "<div class='scroll' id='grade'>";
+                echo "<div class='scroll' id='images-selector'>";
+                    $cont = 0;
                     foreach($todas_imagens as $imagem) {
-                        echo "<script>todas_imagens.push({arq:'".$imagem->getArquivo()."', tag:'".$imagem->getTag()."'});</script>";
+                        $arquivo = $imagem->getArquivo();
+                        // echo "<div class='img-container'><div class='img-hover'></div></div>";
+                        echo '<div class="container-image margin-5" name="'.$arquivo.'" onclick="marcarImagemSelecionada(\''.$arquivo.'\');"><img class = "img-hover" src="'.$arquivo.'"><div class="overlay"></div></div>';
+                        $cont++;
+                        // 3 imagens por linha
+                        if($cont % 3 == 0) {
+                            echo "<br>";
+                        }
                     }
-                    echo "<script>atualizarGradeImagens();</script>";
                 echo "</div>";
             ?>
             <br>
