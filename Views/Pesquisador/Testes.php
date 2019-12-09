@@ -1,5 +1,5 @@
         <?php
-        
+
             require_once "../../Models/Teste.php";
             require_once "../../Models/Pesquisador.php";
 
@@ -43,7 +43,7 @@
             echo "<br>";
             */
         ?>
-    
+
 
 
 <!DOCTYPE html>
@@ -58,6 +58,10 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-default navbar-transparent navbar-fixed-top" color-on-scroll="200">
+        <a class="navbar-brand" href="../Home.php">HOME</a>
+    </nav>
+
     <div class='section-teste'>
         <div class='container-teste'>
             <div class='row'>
@@ -74,7 +78,7 @@
         <?php
             if($pesquisador->isAdm()) {
                 echo "<tr>";
-                
+
                 echo "<form action='Cadastro.php'>";
                     /*echo "<input type='submit' value='Cadastrar Novo Pesquisador'>";*/
                     echo "<button type='submit' class='btn btn-success'>Cadastrar Novo Pesquisador</button>";
@@ -96,11 +100,11 @@
 
                         <?php
 
-    
+
 
                           $cont = 0;
                           foreach($lista_testes as $teste) {
-                      
+
                             echo "<tbody>";
                             echo "<td>", $teste->getId(), "</td>";
                             echo "<td>", $teste->getCodigoAcesso(), "</td>";
@@ -111,7 +115,7 @@
                             //echo "<td>", "<input type='submit' value='Detalhes'>", "</td>";
                             echo "<td>", "<button type='submit' class='btn btn-success' value='Detalhes'>Detalhes</button>", "</td>";
                             echo "<input type='hidden' name='pos_teste' value='".$cont."'>";
-                            
+
                             echo "</form>";
                             // Respostas
                             echo "<form action='../../Controllers/Pesquisador/ExibirRespostas.php', method='post'>";
@@ -127,6 +131,7 @@
                             echo "</form>";
                             echo "</tr>";
                             echo "</tbody>";
+                            $cont++;
                         }
                         ?>
                     </table>

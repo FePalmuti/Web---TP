@@ -7,10 +7,10 @@
     $senha = $_POST["senha"];
     $adm = $_POST["adm"];
     if($adm == "sim") {
-        $adm = True;
+        $adm = 1;
     }
     else {
-        $adm = False;
+        $adm = 0;
     }
     // Criptografa senha
     $senha = md5($senha);

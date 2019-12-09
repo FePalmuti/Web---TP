@@ -17,10 +17,6 @@
                     <table class='table table-hover table-dark'>
                     <h1>Teste Detalhado</h1>
                         <thead>
-                            <div class="button-new">
-                                    </button>
-                                </form>
-                            </div>
                             <tr>
                                 <th scope='col'>ID</th>
                                 <th scope='col'>Título</th>
@@ -39,26 +35,42 @@
             $teste = $lista_testes[$pos_teste];
             // Printa informacoes sobre o teste
             //echo $teste->getId(), "<br>", $teste->getNome(), "<br>", $teste->getCodigoAcesso(), "<br>";
-            foreach($teste->getListaPerguntas() as $pergunta) 
-            {
-                // Printa informacoes sobre a pergunta
-                echo "<br>", $pergunta->getNumero(), " - ", $pergunta->getDescricao(), " - ", $pergunta->getTipo(), "<br>";
-                foreach($pergunta->getListaAlternativas() as $alternativa) {
-                    $arquivo = $alternativa->getArquivoImagem();
-                    echo "<img src=".$arquivo." height='100'>";
-                    echo "</tr>";
-                }
-                echo "<br>";
-            }
-
-            
-            echo "<form action='TesteDetalhado.php', method='post'>";
             echo "<tbody>";
             echo "<tr>";
             echo "<th scope = 'row'>", $teste->getId(), "</th>";
             echo "<td>", $teste->getNome(), "</td>";
             echo "<td>", $teste->getCodigoAcesso(), "</td>";
-            
+            echo "<tr>";
+            echo "</tbody>";
+            echo "</table>";
+            echo "<div style='margin-top:170px'></div>";
+            foreach($teste->getListaPerguntas() as $pergunta)
+            {
+                // Printa informacoes sobre a pergunta
+                echo "<table class='table table-hover table-dark'>";
+                echo "<thead>";
+                echo "<tr>";
+                echo "<th scope='col'>", "Pergunta", "</th>";
+                echo "<th scope='col'>", "Instruções", "</th>";
+                echo "<th scope='col'>", "Descrição", "</th>";
+                echo "</tr>";
+                echo "</thead>";
+                echo "<tbody>";
+                echo "<tr>";
+                echo "<th scope = 'row'>", $pergunta->getNumero(), "</th>";
+                echo "<td>", $pergunta->getInstrucoes(), "</td>";
+                echo "<td>", $pergunta->getDescricao(), "</td>";
+                echo "</tr>";
+                echo "<tr>";
+                foreach($pergunta->getListaAlternativas() as $alternativa) {
+                    $arquivo = $alternativa->getArquivoImagem();
+                    echo "<td><img src=".$arquivo." height='100'></td>";
+                }
+                echo "</tr>";
+                echo "</tbody>";
+                echo "</table>";
+            }
+
         ?>
     </body>
 </html>
